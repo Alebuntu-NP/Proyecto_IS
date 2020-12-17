@@ -274,21 +274,19 @@ public class Pantalla {
         String nombre, descripcion;
         int fallo = -1;
         while (fallo == -1) {
-            try {
-
-                Scanner s = new Scanner(System.in);
+          
+                
+                
 
                 System.out.println("Introduzca los datos de la Comisión");
                 System.out.print("Nombre: ");
-                nombre = s.nextLine();
+                nombre = IO.readLine();
                 System.out.print("Descripcion: ");
-                descripcion = s.nextLine();
+                descripcion = IO.readLine();
 
                 fallo = controlador.addComision(nombre, descripcion);
                 System.out.println("\n\n");
-            } catch (InputMismatchException ex) {
-                System.out.println("Debe ingresar los datos correctos.");
-            }
+             
 
             if (fallo == -2) {
                 System.out.println("La Comisión ya existe");
@@ -304,19 +302,19 @@ public class Pantalla {
 
     private void mostrarIncluirMiembroEnComision() {
 
-        Scanner s = new Scanner(System.in);
+      
         String dni;
         String nombre;
         String puesto;
         System.out.println("Introduzca nombre de la Comision: ");
-        nombre = s.nextLine();
+        nombre = IO.readLine();
         if (controlador.introducirComision(nombre) != null) {
 
             System.out.println(controlador.introducirComision(nombre).toString());
 
             System.out.println("Introduzca dni del Miembro: ");
 
-            dni = s.nextLine();
+            dni = IO.readLine();
 
             if (controlador.introducirDni(dni) != null) {
 
@@ -324,7 +322,7 @@ public class Pantalla {
 
                 System.out.println("Introduzca puesto del Miembro: ");
 
-                puesto = s.nextLine();
+                puesto = IO.readLine();
 
                 controlador.introducirMiembro(dni, puesto);
 
@@ -344,18 +342,18 @@ public class Pantalla {
 
     private void mostrarEliminarMiembroDeComision() {
 
-        Scanner s = new Scanner(System.in);
+        
         String dni;
         String nombre;
         System.out.println("Introduzca nombre de la Comision: ");
-        nombre = s.nextLine();
+        nombre = IO.readLine();
         if (controlador.introducirComision(nombre) != null) {
 
             System.out.println(controlador.introducirComision(nombre).toString());
 
             System.out.println("Introduzca dni del Miembro: ");
 
-            dni = s.nextLine();
+            dni = IO.readLine();
 
             if (controlador.introducirDni(dni) != null) {
 
@@ -379,10 +377,10 @@ public class Pantalla {
 
     private void mostrarConsultaComision() {
 
-        Scanner s = new Scanner(System.in);
+    
         String nombre;
         System.out.println("Introduzca nombre de la Comision: ");
-        nombre = s.nextLine();
+        nombre = IO.readLine();
         if (controlador.introducirComision(nombre) != null) {
 
             System.out.println(controlador.introducirComision(nombre).toString());
