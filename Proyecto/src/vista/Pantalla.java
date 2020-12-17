@@ -8,8 +8,7 @@ import poo.io.IO;
 
 /**
  *
- * @author Alberto García Gonzalez,Juan Moreno Galvarro,Alejandro Román
- * Caballero
+ * @author Alberto García Gonzalez,Juan Moreno Galvarro,Alejandro Román Caballero
  */
 public class Pantalla {
 
@@ -104,11 +103,9 @@ public class Pantalla {
     private void mostrarAltaMiembro() {
 
         int fallo = 0;
-      
 
         System.out.println("Introduzca los datos del Miembro");
         System.out.print("Dni: ");
-        IO.readNumber();
         String dni = IO.readLine();
         System.out.print("Nombre: ");
         String nombre = IO.readLine();;
@@ -134,10 +131,10 @@ public class Pantalla {
     }
 
     private void mostrarBajaMiembro() {
-        Scanner s = new Scanner(System.in);
+       
         String dni;
         System.out.print("Introduzca dni del Miembro: ");
-        dni = s.nextLine();
+        dni = IO.readLine();
         if (controlador.introducirDni(dni) != null) {
 
             System.out.println(controlador.introducirDni(dni).toString());
@@ -145,7 +142,7 @@ public class Pantalla {
             while (opc != 1) {
                 System.out.println("\t1. Confimar eliminacion");
                 System.out.println("\t2. No eliminar miembro");
-                opc = s.nextInt();
+                opc = (int) IO.readNumber();
 
                 switch (opc) {
                     case 1:
@@ -164,7 +161,7 @@ public class Pantalla {
             }
         } else {
 
-            System.out.println("No podemos eliminar el cliente con el dni "+dni +". Actualmente no existe.");
+            System.out.println("No podemos eliminar el cliente con el dni " + dni + ". Actualmente no existe.");
         }
     }
 
@@ -172,10 +169,10 @@ public class Pantalla {
 
         int fallo = -1;
 
-        Scanner s = new Scanner(System.in);
+        
 
         System.out.print("Introduzca dni del Miembro: ");
-        String dni = s.nextLine();
+        String dni = IO.readLine();
         if (controlador.introducirDni(dni) != null) {
 
             while (fallo == -1) {
@@ -183,15 +180,15 @@ public class Pantalla {
 
                     System.out.println("Introduzca los nuevos datos del miembro.");
                     System.out.print("Nombre: ");
-                    String nombre = s.nextLine();
+                    String nombre = IO.readLine();
                     System.out.print("Apellidos: ");
-                    String apellidos = s.nextLine();
+                    String apellidos = IO.readLine();;
                     System.out.print("Dirección: ");
-                    String direccion = s.nextLine();
+                    String direccion = IO.readLine();
                     System.out.print("Telefono: ");
-                    int telefono = s.nextInt();
+                    int telefono = (int) IO.readNumber();
                     System.out.print("Email: ");
-                    String email = s.nextLine();
+                    String email = IO.readLine();
 
                     controlador.cambiarMiembro(nombre, apellidos, direccion, telefono, email);
                     fallo = 0;
@@ -210,10 +207,10 @@ public class Pantalla {
     }
 
     private void mostrarConsultaMiembro() {
-        Scanner s = new Scanner(System.in);
+     
         String dni;
         System.out.println("Introduzca dni del Miembro: ");
-        dni = s.nextLine();
+        dni = IO.readLine();
         if (controlador.introducirDni(dni) != null) {
 
             System.out.println(controlador.introducirDni(dni).toString());
