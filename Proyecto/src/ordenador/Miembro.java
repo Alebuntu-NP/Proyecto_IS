@@ -62,7 +62,7 @@ public class Miembro implements IMiembro {
 
     @Override
     public String toString() {
-        return "Miembro{" + "nombre=" + nombre + ", apellidos=" + apellidos + ", dni=" + dni + ", direccion=" + direccion + ", telefono=" + telefono + ", email=" + email + '}';
+        return "\nNombre: " + nombre + " Apellidos: " + apellidos + " DNI: " + dni + " Direccion: " + direccion + " Telefono: " + telefono + " Email: " + email+ "\n";
     }
 
 }

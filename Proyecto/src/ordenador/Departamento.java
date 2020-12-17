@@ -39,21 +39,23 @@ public class Departamento implements IDepartamento {
     @Override
     public Miembro obtenerMiembro(String dni) {
         Miembro m = null;
+        Miembro maux;
         Iterator it;
-
+        
+        
         it = listMiem.iterator();
 
         while (it.hasNext()) {
 
-            m = (Miembro) it.next();
-            if (m.getDni().equals(dni)) {
-
-                return m;
+            maux = (Miembro) it.next();
+            if (maux.getDni().equals(dni)) {
+                
+                m = maux;
 
             }
 
         }
-
+        
         return m;
     }
 

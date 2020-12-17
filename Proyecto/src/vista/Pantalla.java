@@ -77,6 +77,9 @@ public class Pantalla {
             }
             if (opc != 0) {
                 realizarOpcionGestionMiembro(opc);
+                System.out.println("");
+                System.out.println("Pulsa cualquier tecla para ir al menú");
+                IO.readLine();
             }
         } while (opc != 0);
     }
@@ -119,7 +122,7 @@ public class Pantalla {
         String email = IO.readLine();
 
         fallo = controlador.addMiembro(nombre, apellidos, dni, direccion, telefono, email);
-        System.out.println("\n\n");
+        System.out.println("");
 
         if (fallo == -1) {
             System.out.println("El miembro con DNI " + dni + "ya existe");
@@ -131,7 +134,7 @@ public class Pantalla {
     }
 
     private void mostrarBajaMiembro() {
-       
+
         String dni;
         System.out.print("Introduzca dni del Miembro: ");
         dni = IO.readLine();
@@ -140,13 +143,14 @@ public class Pantalla {
             System.out.println(controlador.introducirDni(dni).toString());
             int opc = 0;
             while (opc != 1) {
-                System.out.println("\t1. Confimar eliminacion");
+                System.out.println("\t1. Confimar eliminación");
                 System.out.println("\t2. No eliminar miembro");
                 opc = (int) IO.readNumber();
+                System.out.println("");
 
                 switch (opc) {
                     case 1:
-                        controlador.confirmarEliminacionMiembro();
+                        controlador.confirmarBaja();
                         System.out.println("Miembro eliminado correctamente.");
                         break;
                     case 2:
@@ -154,7 +158,7 @@ public class Pantalla {
                         break;
                     default:
 
-                        System.out.println("Opcion invalida.");
+                        System.out.println("Opción inválida.");
                         break;
 
                 }
@@ -169,14 +173,12 @@ public class Pantalla {
 
         int fallo = -1;
 
-        
-
         System.out.print("Introduzca dni del Miembro: ");
         String dni = IO.readLine();
         if (controlador.introducirDni(dni) != null) {
 
             while (fallo == -1) {
-                try {
+
 
                     System.out.println("Introduzca los nuevos datos del miembro.");
                     System.out.print("Nombre: ");
@@ -192,11 +194,10 @@ public class Pantalla {
 
                     controlador.cambiarMiembro(nombre, apellidos, direccion, telefono, email);
                     fallo = 0;
+                    System.out.println("");
                     System.out.println("El Miembro se ha modificado correctamente.");
-                    System.out.println("\n\n");
-                } catch (InputMismatchException ex) {
-                    System.out.println("Debe ingresar los datos correctos.");
-                }
+
+                
 
             }
 
@@ -207,13 +208,13 @@ public class Pantalla {
     }
 
     private void mostrarConsultaMiembro() {
-     
+
         String dni;
         System.out.println("Introduzca dni del Miembro: ");
         dni = IO.readLine();
         if (controlador.introducirDni(dni) != null) {
 
-            System.out.println(controlador.introducirDni(dni).toString());
+            System.out.print(controlador.introducirDni(dni).toString());
 
         } else {
 
