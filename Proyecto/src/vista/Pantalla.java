@@ -7,7 +7,8 @@ import ordenador.Ordenador;
 
 /**
  *
- * @author Alberto García Gonzalez,Juan Moreno Galvarro,Alejandro Román Caballero
+ * @author Alberto García Gonzalez,Juan Moreno Galvarro,Alejandro Román
+ * Caballero
  */
 public class Pantalla {
 
@@ -102,34 +103,32 @@ public class Pantalla {
     private void mostrarAltaMiembro() {
 
         int fallo = 0;
-                Scanner s = new Scanner(System.in);
+        Scanner s = new Scanner(System.in);
 
-                System.out.println("Introduzca los datos del Miembro");
-                System.out.print("Dni: ");
-                String dni = s.nextLine();
-                System.out.print("Nombre: ");
-                String nombre = s.nextLine();
-                System.out.print("Apellidos: ");
-                String apellidos = s.nextLine();
-                System.out.print("Dirección: ");
-                String direccion = s.nextLine();
-                System.out.print("Telefono: ");
-                int telefono = s.nextInt();
-                System.out.print("Email: ");
-                String email = s.nextLine();
+        System.out.println("Introduzca los datos del Miembro");
+        System.out.print("Dni: ");
+        String dni = s.nextLine();
+        System.out.print("Nombre: ");
+        String nombre = s.nextLine();
+        System.out.print("Apellidos: ");
+        String apellidos = s.nextLine();
+        System.out.print("Dirección: ");
+        String direccion = s.nextLine();
+        System.out.print("Telefono: ");
+        int telefono = s.nextInt();
+        System.out.print("Email: ");
+        String email = s.nextLine();
 
-                fallo = controlador.addMiembro(nombre,apellidos,dni,direccion,telefono,email);
-                System.out.println("\n\n");
+        fallo = controlador.addMiembro(nombre, apellidos, dni, direccion, telefono, email);
+        System.out.println("\n\n");
 
+        if (fallo == -1) {
+            System.out.println("El miembro con DNI " + dni + "ya existe");
 
-            if (fallo == -1) {
-                System.out.println("El miembro con DNI "+dni+ "ya existe");
+        } else {
+            System.out.println("El miembro se ha registrado correctamente.");
+        }
 
-            } else {
-                System.out.println("El miembro se ha registrado correctamente.");
-            }
-
-        
     }
 
     private void mostrarBajaMiembro() {
@@ -142,17 +141,17 @@ public class Pantalla {
             System.out.println(controlador.introducirDni(dni).toString());
             int opc = 0;
             while (opc != 1) {
-                System.out.println("\t1. Confimar Eliminacion");
-                System.out.println("\t2. No hacer nada");
+                System.out.println("\t1. Confimar eliminacion");
+                System.out.println("\t2. No eliminar miembro");
                 opc = s.nextInt();
 
                 switch (opc) {
                     case 1:
                         controlador.confirmarEliminacionMiembro();
-                        System.out.println("Miembro eliminado de la lista de Miembro de Departamento correctamente.");
+                        System.out.println("Miembro eliminado correctamente.");
                         break;
                     case 2:
-                        System.out.println("No se ha eliminado el Miembro seleccionado.");
+                        System.out.println("No se ha eliminado el miembro.");
                         break;
                     default:
 
@@ -163,12 +162,11 @@ public class Pantalla {
             }
         } else {
 
-            System.out.println("El cliente seleccionado no existe.");
+            System.out.println("No podemos eliminar el cliente con el dni "+dni +". Actualmente no existe.");
         }
     }
 
     private void mostrarModificacionMiembro() {
-         
 
         int fallo = -1;
 
@@ -202,7 +200,7 @@ public class Pantalla {
                 }
 
             }
-                    
+
         } else {
 
             System.out.println("El cliente seleccionado no existe.");
