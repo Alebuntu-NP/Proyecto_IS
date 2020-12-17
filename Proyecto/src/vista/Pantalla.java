@@ -108,9 +108,9 @@ public class Pantalla {
         System.out.print("Dni: ");
         String dni = IO.readLine();
         System.out.print("Nombre: ");
-        String nombre = IO.readLine();;
+        String nombre = IO.readLine();
         System.out.print("Apellidos: ");
-        String apellidos = IO.readLine();;
+        String apellidos = IO.readLine();
         System.out.print("Dirección: ");
         String direccion = IO.readLine();
         System.out.print("Telefono: ");
@@ -182,7 +182,7 @@ public class Pantalla {
                     System.out.print("Nombre: ");
                     String nombre = IO.readLine();
                     System.out.print("Apellidos: ");
-                    String apellidos = IO.readLine();;
+                    String apellidos = IO.readLine();
                     System.out.print("Dirección: ");
                     String direccion = IO.readLine();
                     System.out.print("Telefono: ");
