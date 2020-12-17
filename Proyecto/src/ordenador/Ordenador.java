@@ -21,7 +21,7 @@ public class Ordenador implements IOrdenador {
     }
 
     @Override
-    public int addMiembro(String nombre, String apellidos, String dni, String direccion, String telefono, String email) {
+    public int addMiembro(String nombre, String apellidos, String dni, String direccion, int telefono, String email) {
         miembro = new Miembro(nombre, apellidos, dni, direccion, telefono, email);
         return departamento.miembroNuevo(miembro);
 
@@ -40,7 +40,7 @@ public class Ordenador implements IOrdenador {
     }
 
     @Override
-    public void cambiarMiembro(String nombre, String apellidos, String direccion, String telefono, String email) {
+    public void cambiarMiembro(String nombre, String apellidos, String direccion, int telefono, String email) {
 
         miembro.modificaMiembro(nombre, apellidos, direccion, telefono, email);
     }

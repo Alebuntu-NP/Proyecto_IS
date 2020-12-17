@@ -6,7 +6,8 @@ import java.util.List;
 
 /**
  *
- * @author Alberto García Gonzalez,Juan Moreno Galvarro,Alejandro Román Caballero
+ * @author Alberto García Gonzalez,Juan Moreno Galvarro,Alejandro Román
+ * Caballero
  */
 // Terminado solo falta revision por parte del grupo
 public class Departamento implements IDepartamento {
@@ -25,19 +26,11 @@ public class Departamento implements IDepartamento {
     // Aqui he cambiado el void por un int para asi ver al que error se refiere
     @Override
     public int miembroNuevo(Miembro m) {
-        int res;
+        int res = 0;
         if (listMiem.contains(m)) {
-            res = -2;
-
+            res = -1; // devolverá -1 si el miembro que estamos introduciendo ya existe.
         } else {
-            if (listMiem.add(m)) {
-                res = 0;
-            } else {
-                
-                res = -1;
-
-            }
-
+            listMiem.add(m);
         }
         return res;
 

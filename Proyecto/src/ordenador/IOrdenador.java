@@ -11,13 +11,13 @@ import java.util.Calendar;
 // Revisar que estos metodos esta igual al diagrama de clases y a los DSS
 public interface IOrdenador {
 
-    public int addMiembro(String nombre, String apellidos, String dni, String direccion, String telefono, String email);
+    public int addMiembro(String nombre, String apellidos, String dni, String direccion, int telefono, String email);
 
     public Miembro introducirDni(String dni);
 
     public void confirmarBaja();
 
-    public void cambiarMiembro(String nombre, String apellidos, String direccion, String telefono, String email);
+    public void cambiarMiembro(String nombre, String apellidos, String direccion, int telefono, String email);
 
     public int addComision(String nombre, String descripcion);
 

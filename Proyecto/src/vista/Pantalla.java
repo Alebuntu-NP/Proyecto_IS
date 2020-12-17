@@ -100,42 +100,36 @@ public class Pantalla {
     }
 
     private void mostrarAltaMiembro() {
-        String dni, nombre, apellidos, direccion, telefono, email;
-        int fallo = -1;
-        while (fallo == -1) {
-            try {
+
+        int fallo = 0;
                 Scanner s = new Scanner(System.in);
 
                 System.out.println("Introduzca los datos del Miembro");
                 System.out.print("Dni: ");
-                dni = s.nextLine();
+                String dni = s.nextLine();
                 System.out.print("Nombre: ");
-                nombre = s.nextLine();
+                String nombre = s.nextLine();
                 System.out.print("Apellidos: ");
-                apellidos = s.nextLine();
+                String apellidos = s.nextLine();
                 System.out.print("Dirección: ");
-                direccion = s.nextLine();
+                String direccion = s.nextLine();
                 System.out.print("Telefono: ");
-                telefono = s.nextLine();
+                int telefono = s.nextInt();
                 System.out.print("Email: ");
-                email = s.nextLine();
+                String email = s.nextLine();
 
                 fallo = controlador.addMiembro(nombre,apellidos,dni,direccion,telefono,email);
                 System.out.println("\n\n");
-            } catch (InputMismatchException ex) {
-                System.out.println("Debe ingresar los datos correctos.");
-            }
 
-            if (fallo == -2) {
-                System.out.println("El Miembro ya existe");
+
+            if (fallo == -1) {
+                System.out.println("El miembro con DNI "+dni+ "ya existe");
 
             } else {
-
-                System.out.println("El Miembro se ha registrado correctamente.");
-
+                System.out.println("El miembro se ha registrado correctamente.");
             }
 
-        }
+        
     }
 
     private void mostrarBajaMiembro() {
@@ -174,14 +168,14 @@ public class Pantalla {
     }
 
     private void mostrarModificacionMiembro() {
-        String dni, nombre, apellidos, direccion, telefono, email;
+         
 
         int fallo = -1;
 
         Scanner s = new Scanner(System.in);
 
         System.out.print("Introduzca dni del Miembro: ");
-        dni = s.nextLine();
+        String dni = s.nextLine();
         if (controlador.introducirDni(dni) != null) {
 
             while (fallo == -1) {
@@ -189,15 +183,15 @@ public class Pantalla {
 
                     System.out.println("Introduzca los nuevos datos del miembro.");
                     System.out.print("Nombre: ");
-                    nombre = s.nextLine();
+                    String nombre = s.nextLine();
                     System.out.print("Apellidos: ");
-                    apellidos = s.nextLine();
+                    String apellidos = s.nextLine();
                     System.out.print("Dirección: ");
-                    direccion = s.nextLine();
+                    String direccion = s.nextLine();
                     System.out.print("Telefono: ");
-                    telefono = s.nextLine();
+                    int telefono = s.nextInt();
                     System.out.print("Email: ");
-                    email = s.nextLine();
+                    String email = s.nextLine();
 
                     controlador.cambiarMiembro(nombre, apellidos, direccion, telefono, email);
                     fallo = 0;

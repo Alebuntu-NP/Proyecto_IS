@@ -12,10 +12,10 @@ public class Miembro implements IMiembro {
     private String apellidos;
     private String dni;
     private String direccion;
-    private String telefono;
+    private int telefono;
     private String email;
 
-    public Miembro(String nombre, String apellidos, String dni, String direccion, String telefono, String email) {
+    public Miembro(String nombre, String apellidos, String dni, String direccion, int telefono, String email) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.dni = dni;
@@ -25,7 +25,7 @@ public class Miembro implements IMiembro {
     }
 
     @Override
-    public void modificaMiembro(String nombre, String apellidos, String direccion, String telefono, String email) {
+    public void modificaMiembro(String nombre, String apellidos, String direccion, int telefono, String email) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.direccion = direccion;
