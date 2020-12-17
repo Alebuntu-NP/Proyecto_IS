@@ -24,15 +24,36 @@ public class Comision implements IComision {
         this.listR = new ArrayList();
 
     }
-    
-   
 
     @Override
     public void crearLineaDeComision(String puesto, Miembro m) {
         Calendar fechaAlta = Calendar.getInstance();
         Calendar fechaBaja = null;
-        LineaDeComision ldc = new LineaDeComision(fechaAlta, fechaBaja, puesto, m);
-        this.listLdc.add(ldc);
+        LineaDeComision ldc;
+        //Te dice si el miembro esta en la comisión, damos por hehcho que no lo está de primeras
+        boolean encontrado = false;
+        Iterator it;
+        it = listLdc.iterator();
+        while (it.hasNext() && !encontrado) {
+            ldc = (LineaDeComision) it.next();
+            // Si está el miembro, cambiamos encontrado a true
+            if (ldc.getMiembro() == m) {
+                encontrado = true;
+                //Miramos si el miembro encontrado está dado de baja o no
+                //Si esta dado de alta
+                if (ldc.getFechaBaja() == null) {
+                    System.out.println("El miembro esta dado de alta en la comisión");
+                } else {
+                    //Si esta dado de baja 
+                    encontrado = false;
+                }
+            }
+        }
+        //Si el miembro no esta dado de alta en una comision 
+        if (!encontrado) {
+            ldc = new LineaDeComision(fechaAlta, fechaBaja, puesto, m);
+            this.listLdc.add(ldc);
+        }
 
     }
 
@@ -41,21 +62,27 @@ public class Comision implements IComision {
 
         LineaDeComision ldc;
         Calendar fechaActual = Calendar.getInstance();
-
+        boolean encontrado = false;
         Iterator it;
         it = listLdc.iterator();
-
         while (it.hasNext()) {
-
             ldc = (LineaDeComision) it.next();
-            if (ldc.getMiembro().equals(m)) {
-
-                ldc.setFechaBaja(fechaActual);
-                break;
+            if (ldc.getMiembro() == m) {
+                //Miramos si el miembro encontrado está dado de baja o no
+                //Si esta dado de alta
+                if (ldc.getFechaBaja() == null) {
+                    encontrado = true;
+                    ldc.setFechaBaja(fechaActual);
+                } else {
+                    //Si esta dado de baja 
+                    System.out.println("El miembro ya está dado de baja");
+                }
             }
-
         }
-
+        if(!encontrado){
+            System.out.println("El miembro no existe en l a comisión");
+        }
+        
     }
 
     @Override
@@ -68,7 +95,7 @@ public class Comision implements IComision {
     @Override
     public Reunion obtenerReunionAnual(String titulo, int anyo) {
 
-        Reunion r=null;
+        Reunion r = null;
         Iterator it;
 
         it = listR.iterator();
@@ -83,14 +110,14 @@ public class Comision implements IComision {
             }
 
         }
-      
+
         return r;
 
     }
 
     @Override
     public Reunion obtenerReunion(String titulo) {
-        Reunion r=null;
+        Reunion r = null;
         Iterator it;
 
         it = listR.iterator();

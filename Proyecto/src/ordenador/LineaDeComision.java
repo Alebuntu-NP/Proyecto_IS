@@ -34,8 +34,12 @@ public class LineaDeComision implements ILineaDeComision {
         return miembro;
     }
 
-    public void setMiembro(Miembro miembro) {
-        this.miembro = miembro;
+    public Calendar getFechaAlta() {
+        return fechaAlta;
+    }
+
+    public Calendar getFechaBaja() {
+        return fechaBaja;
     }
     
     

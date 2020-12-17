@@ -6,8 +6,7 @@ import java.util.List;
 
 /**
  *
- * @author Alberto García Gonzalez,Juan Moreno Galvarro,Alejandro Román
- * Caballero
+ * @author Alberto García Gonzalez,Juan Moreno Galvarro,Alejandro Román Caballero
  */
 // Terminado solo falta revision por parte del grupo
 public class Departamento implements IDepartamento {
@@ -41,21 +40,13 @@ public class Departamento implements IDepartamento {
         Miembro m = null;
         Miembro maux;
         Iterator it;
-        
-        
         it = listMiem.iterator();
-
         while (it.hasNext()) {
-
             maux = (Miembro) it.next();
             if (maux.getDni().equals(dni)) {
-                
                 m = maux;
-
             }
-
         }
-        
         return m;
     }
 
@@ -66,17 +57,12 @@ public class Departamento implements IDepartamento {
 
     @Override
     public int comisionNueva(Comision c) {
-        int res;
+        int res = 0;
         if (listCom.contains(c)) {
-            res = -2;
+            res = -1;
 
         } else {
-            if (listCom.add(c)) {
-                res = 0;
-            } else {
-                res = -1;
-
-            }
+            listCom.add(c);
 
         }
         return res;
@@ -85,21 +71,15 @@ public class Departamento implements IDepartamento {
     @Override
     public Comision obtenerComision(String nombre) {
         Comision c = null;
+        Comision caux;
         Iterator it;
-
         it = listCom.iterator();
-
         while (it.hasNext()) {
-
-            c = (Comision) it.next();
-            if (c.getNombre().equals(nombre)) {
-
-                return c;
-
+            caux = (Comision) it.next();
+            if (caux.getNombre().equals(nombre)) {
+                c = caux;
             }
-
         }
-
         return c;
     }
 

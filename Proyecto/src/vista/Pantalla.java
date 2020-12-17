@@ -179,25 +179,22 @@ public class Pantalla {
 
             while (fallo == -1) {
 
+                System.out.println("Introduzca los nuevos datos del miembro.");
+                System.out.print("Nombre: ");
+                String nombre = IO.readLine();
+                System.out.print("Apellidos: ");
+                String apellidos = IO.readLine();
+                System.out.print("Dirección: ");
+                String direccion = IO.readLine();
+                System.out.print("Telefono: ");
+                int telefono = (int) IO.readNumber();
+                System.out.print("Email: ");
+                String email = IO.readLine();
 
-                    System.out.println("Introduzca los nuevos datos del miembro.");
-                    System.out.print("Nombre: ");
-                    String nombre = IO.readLine();
-                    System.out.print("Apellidos: ");
-                    String apellidos = IO.readLine();
-                    System.out.print("Dirección: ");
-                    String direccion = IO.readLine();
-                    System.out.print("Telefono: ");
-                    int telefono = (int) IO.readNumber();
-                    System.out.print("Email: ");
-                    String email = IO.readLine();
-
-                    controlador.cambiarMiembro(nombre, apellidos, direccion, telefono, email);
-                    fallo = 0;
-                    System.out.println("");
-                    System.out.println("El Miembro se ha modificado correctamente.");
-
-                
+                controlador.cambiarMiembro(nombre, apellidos, direccion, telefono, email);
+                fallo = 0;
+                System.out.println("");
+                System.out.println("El Miembro se ha modificado correctamente.");
 
             }
 
@@ -244,6 +241,10 @@ public class Pantalla {
             }
             if (opc != 0) {
                 realizarOpcionGestionComision(opc);
+                System.out.println("");
+                System.out.println("Pulsa cualquier tecla para ir al menú");
+                IO.readLine();
+
             }
         } while (opc != 0);
     }
@@ -273,76 +274,59 @@ public class Pantalla {
     private void mostrarAltaComision() {
         String nombre, descripcion;
         int fallo = -1;
-        while (fallo == -1) {
-          
-                
-                
 
-                System.out.println("Introduzca los datos de la Comisión");
-                System.out.print("Nombre: ");
-                nombre = IO.readLine();
-                System.out.print("Descripcion: ");
-                descripcion = IO.readLine();
+        System.out.println("Introduzca los datos de la Comisión");
+        System.out.print("Nombre: ");
+        nombre = IO.readLine();
+        System.out.print("Descripcion: ");
+        descripcion = IO.readLine();
 
-                fallo = controlador.addComision(nombre, descripcion);
-                System.out.println("\n\n");
-             
+        fallo = controlador.addComision(nombre, descripcion);
+        System.out.println("");
 
-            if (fallo == -2) {
-                System.out.println("La Comisión ya existe");
+        if (fallo == -1) {
+            System.out.println("La Comisión ya existe");
 
-            } else {
+        } else {
 
-                System.out.println("La Comisión se ha registrado correctamente.");
-
-            }
+            System.out.println("La Comisión se ha registrado correctamente.");
 
         }
     }
 
     private void mostrarIncluirMiembroEnComision() {
 
-      
         String dni;
         String nombre;
         String puesto;
-        System.out.println("Introduzca nombre de la Comision: ");
+        System.out.println("Introduzca nombre de la Comisión: ");
         nombre = IO.readLine();
         if (controlador.introducirComision(nombre) != null) {
 
             System.out.println(controlador.introducirComision(nombre).toString());
-
-            System.out.println("Introduzca dni del Miembro: ");
-
+            System.out.println("\nIntroduzca DNI del Miembro: ");
             dni = IO.readLine();
 
             if (controlador.introducirDni(dni) != null) {
 
                 System.out.println(controlador.introducirDni(dni).toString());
-
-                System.out.println("Introduzca puesto del Miembro: ");
-
+                System.out.println("\nIntroduzca puesto del Miembro: ");
                 puesto = IO.readLine();
-
                 controlador.introducirMiembro(dni, puesto);
-
-                System.out.println("Miembro ha sido dado de alta en una comision.");
+                System.out.println("Miembro ha sido dado de alta en una comisión.");
 
             } else {
-
                 System.out.println("El Miembro no existe.");
             }
 
         } else {
-
-            System.out.println("La Comision no existe.");
+            System.out.println("La Comisión no existe.");
         }
 
     }
 
     private void mostrarEliminarMiembroDeComision() {
 
-        
         String dni;
         String nombre;
         System.out.println("Introduzca nombre de la Comision: ");
@@ -377,7 +361,6 @@ public class Pantalla {
 
     private void mostrarConsultaComision() {
 
-    
         String nombre;
         System.out.println("Introduzca nombre de la Comision: ");
         nombre = IO.readLine();
