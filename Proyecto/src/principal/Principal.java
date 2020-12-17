@@ -18,7 +18,7 @@ public class Principal {
             public static void main(String[] args) {
 
         //Instrucciones del metodo
-        Departamento o = new Departamento("Tienda Galvarro");
+        Departamento o = new Departamento("Departamento Deporte e Informatica");
         Ordenador controlador = new Ordenador(o);
         Pantalla pa = new Pantalla(controlador);
 
