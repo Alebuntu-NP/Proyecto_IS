@@ -4,6 +4,7 @@ import java.util.Calendar;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import ordenador.Ordenador;
+import poo.io.IO;
 
 /**
  *
@@ -103,21 +104,22 @@ public class Pantalla {
     private void mostrarAltaMiembro() {
 
         int fallo = 0;
-        Scanner s = new Scanner(System.in);
+      
 
         System.out.println("Introduzca los datos del Miembro");
         System.out.print("Dni: ");
-        String dni = s.nextLine();
+        IO.readNumber();
+        String dni = IO.readLine();
         System.out.print("Nombre: ");
-        String nombre = s.nextLine();
+        String nombre = IO.readLine();;
         System.out.print("Apellidos: ");
-        String apellidos = s.nextLine();
+        String apellidos = IO.readLine();;
         System.out.print("Dirección: ");
-        String direccion = s.nextLine();
+        String direccion = IO.readLine();
         System.out.print("Telefono: ");
-        int telefono = s.nextInt();
+        int telefono = (int) IO.readNumber();
         System.out.print("Email: ");
-        String email = s.nextLine();
+        String email = IO.readLine();
 
         fallo = controlador.addMiembro(nombre, apellidos, dni, direccion, telefono, email);
         System.out.println("\n\n");
