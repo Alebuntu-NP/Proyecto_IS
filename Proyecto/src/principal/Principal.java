@@ -12,7 +12,7 @@ import vista.Pantalla;
 
 /**
  *
- * @author aleja
+ * @author Alberto Garcia Gonzalez, Juan Moreno Galbarro,Alejandro Roman Caballero
  */
 public class Principal {
             public static void main(String[] args) {
