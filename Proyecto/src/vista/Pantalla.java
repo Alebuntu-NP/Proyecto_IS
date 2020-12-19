@@ -1,7 +1,6 @@
 package vista;
 
 import java.util.Calendar;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 import ordenador.Ordenador;
 import poo.io.IO;
@@ -424,42 +423,89 @@ public class Pantalla {
 
         }
     }
-    // Hay completar lo que queda
 
     private void mostrarCrearReunion() {
-        Scanner s = new Scanner(System.in);
-        int tiempo = 0;
+
+        int tiempo;
+        int anyo, mes, dia;
         Calendar fecha = Calendar.getInstance();
-        Calendar horaInicio = Calendar.getInstance();
-        Calendar horaFin = Calendar.getInstance();
+        Calendar horaInicio;
+        Calendar horaFin;
         String titulo, lugar, nombre, url, descripcion;
 
         System.out.println("Introduzca nombre de la Comision: ");
-        nombre = s.nextLine();
+        nombre = IO.readLine();
         if (controlador.introducirComision(nombre) != null) {
 
+            //METIENDO DATOS DE LA REUNION
             System.out.println(controlador.introducirComision(nombre).toString());
             System.out.print("Titulo: ");
-            titulo = s.nextLine();
+            titulo = IO.readLine();
             System.out.print("Lugar: ");
-            lugar = s.nextLine();
-
-            System.out.print("Tiempo: ");
-            tiempo = s.nextInt();
-            horaInicio.set(Calendar.HOUR, 0);
-            horaInicio.set(Calendar.MINUTE, 0);
-            horaInicio.set(Calendar.SECOND, 0);
-            horaFin.set(Calendar.HOUR, 0);
-            horaFin.set(Calendar.MINUTE, 0);
-            horaFin.set(Calendar.SECOND, 0);
-            fecha.set(0, 0, 0);
+            lugar = IO.readLine();
+            System.out.println("Introduzca la fecha de la reunion:");
+            System.out.print("Año: ");
+            anyo = (int) IO.readNumber();
+            System.out.print("Mes: ");
+            mes = (int) IO.readNumber();
+            System.out.print("Dia: ");
+            dia = (int) IO.readNumber();
+            fecha.set(anyo, mes, dia);
+            horaInicio = fecha;
+            horaFin = fecha;
+            System.out.println("Introduzca la hora de comienzo de la reunion:");
+            System.out.print("Hora: ");
+            tiempo = (int) IO.readNumber();
+            horaInicio.set(Calendar.HOUR, tiempo);
+            System.out.print("Minuto: ");
+            tiempo = (int) IO.readNumber();
+            horaInicio.set(Calendar.MINUTE, tiempo);
+            System.out.print("Segundo: ");
+            tiempo = (int) IO.readNumber();
+            horaInicio.set(Calendar.SECOND, tiempo);
+            System.out.println("Introduzca la hora a la que debe terminar la reunion:");
+            System.out.print("Hora: ");
+            tiempo = (int) IO.readNumber();
+            horaInicio.set(Calendar.HOUR, tiempo);
+            System.out.print("Minuto: ");
+            tiempo = (int) IO.readNumber();
+            horaInicio.set(Calendar.MINUTE, tiempo);
+            System.out.print("Segundo: ");
+            tiempo = (int) IO.readNumber();
+            horaInicio.set(Calendar.SECOND, tiempo);
             controlador.addReunion(titulo, fecha, horaInicio, horaFin, lugar);
-            System.out.print("Url: ");
-            url = s.nextLine();
-            System.out.print("Descripcion: ");
-            descripcion = s.nextLine();
-            controlador.addPuntoDia(url, titulo, descripcion);
-            controlador.confirmarReunion();
+            int parada = 2;
+
+            //METIENDO PUNTOS DEL ORDEN DEL DIA
+            while (parada == 2) {
+                System.out.println("Introduzca los datos del punto del orden del dia");
+                System.out.print("Url: ");
+                url = IO.readLine();
+                System.out.print("Descripcion: ");
+                descripcion = IO.readLine();
+                controlador.addPuntoDia(url, titulo, descripcion);
+                int opc = 0;
+                while (opc != 1) {
+                    System.out.println("\t1. Confimar Reunion");
+                    System.out.println("\t2. Añadir algun punto mas");
+                    opc = (int) IO.readNumber();
+                    System.out.println("");
+                    switch (opc) {
+                        case 1:
+                            controlador.confirmarReunion();
+                            System.out.println("Reunion creada satisfactoriamente.");
+                            break;
+                        case 2:
+                            System.out.println("Vamos añadir un punto del dia mas.");
+                            break;
+                        default:
+
+                            System.out.println("Opción inválida.");
+                            break;
+
+                    }
+                }
+            }
 
         } else {
 
@@ -470,20 +516,19 @@ public class Pantalla {
 
     private void mostrarConsultarReunion() {
 
-        Scanner s = new Scanner(System.in);
         String nombre, titulo;
         int anyo;
 
         System.out.println("Introduzca nombre de la Comision: ");
-        nombre = s.nextLine();
+        nombre = IO.readLine();
         if (controlador.introducirComision(nombre) != null) {
 
             System.out.println(controlador.introducirComision(nombre).toString());
 
             System.out.print("Titulo: ");
-            titulo = s.nextLine();
+            titulo = IO.readLine();
             System.out.print("Año de la reunion: ");
-            anyo = s.nextInt();
+            anyo = (int) IO.readNumber();
 
             if (controlador.introducirReunionAnual(titulo, anyo) != null) {
 
@@ -503,11 +548,10 @@ public class Pantalla {
 
     private void mostrarRealizarConvocatoria() {
 
-        Scanner s = new Scanner(System.in);
         String nombre, titulo;
         Calendar fecha_convocatoria = Calendar.getInstance();
         System.out.print("Nombre de la Comision: ");
-        nombre = s.nextLine();
+        nombre = IO.readLine();
         controlador.introducirComision(nombre);
 
         if (controlador.introducirComision(nombre) != null) {
@@ -515,7 +559,7 @@ public class Pantalla {
             System.out.println(controlador.introducirComision(nombre).toString());
 
             System.out.print("Titulo: ");
-            titulo = s.nextLine();
+            titulo = IO.readLine();
 
             if (controlador.introducirReunion(titulo) != null) {
 
@@ -536,23 +580,25 @@ public class Pantalla {
 
     private void mostrarCompletarReunion() {
 
-        Scanner s = new Scanner(System.in);
+        // Revisar el caso de uso de completar reunion.
         String nombre, titulo;
-
+        int hora, minuto, segundo;
+        Calendar horaFin = Calendar.getInstance();
         System.out.println("Introduzca nombre de la Comision: ");
-        nombre = s.nextLine();
+        nombre = IO.readLine();
         if (controlador.introducirComision(nombre) != null) {
 
             System.out.println(controlador.introducirComision(nombre).toString());
 
             System.out.print("Titulo: ");
-            titulo = s.nextLine();
+            titulo = IO.readLine();
 
             if (controlador.introducirReunion(titulo) != null) {
 
                 System.out.println(controlador.introducirReunion(titulo));
+
+                controlador.modificarHoraFin(horaFin);
                 /*
-                controlador.modificaHoraFin(horaFin);
                 controlador.introduceUrl(url);
                 controlador.modificaResolucion(resolucion);
                  */
