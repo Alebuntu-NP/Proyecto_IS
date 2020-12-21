@@ -99,6 +99,7 @@ public class Pantalla {
             case 4:
                 mostrarConsultaMiembro();
                 break;
+
         }
     }
 
@@ -312,7 +313,6 @@ public class Pantalla {
                 System.out.println("\nIntroduzca puesto del Miembro: ");
                 puesto = IO.readLine();
                 controlador.introducirMiembro(dni, puesto);
-                System.out.println("Miembro ha sido dado de alta en una comisión.");
 
             } else {
                 System.out.println("El Miembro no existe.");
@@ -384,7 +384,7 @@ public class Pantalla {
         int opc;
 
         do {
-            System.out.println("\n\n\n\tMenú Gestionar Comisión:\n");
+            System.out.println("\n\n\n\tMenú Gestionar Reunión:\n");
             System.out.println("\t1. Crear Reunión");
             System.out.println("\t2. Consultar Reunión");
             System.out.println("\t3. Realizar Convocatoria");
@@ -433,83 +433,82 @@ public class Pantalla {
         Calendar horaFin;
         String titulo, lugar, nombre, url, descripcion;
 
-        System.out.println("Introduzca nombre de la Comision: ");
+        System.out.println("Introduzca nombre de la Comisión: ");
         nombre = IO.readLine();
         if (controlador.introducirComision(nombre) != null) {
 
             //METIENDO DATOS DE LA REUNION
             System.out.println(controlador.introducirComision(nombre).toString());
-            System.out.print("Titulo: ");
+            System.out.print("Título: ");
             titulo = IO.readLine();
-            System.out.print("Lugar: ");
-            lugar = IO.readLine();
-            System.out.println("Introduzca la fecha de la reunion:");
-            System.out.print("Año: ");
-            anyo = (int) IO.readNumber();
-            System.out.print("Mes: ");
-            mes = (int) IO.readNumber();
-            System.out.print("Dia: ");
-            dia = (int) IO.readNumber();
-            fecha.set(anyo, mes, dia);
-            horaInicio = fecha;
-            horaFin = fecha;
-            System.out.println("Introduzca la hora de comienzo de la reunion:");
-            System.out.print("Hora: ");
-            tiempo = (int) IO.readNumber();
-            horaInicio.set(Calendar.HOUR, tiempo);
-            System.out.print("Minuto: ");
-            tiempo = (int) IO.readNumber();
-            horaInicio.set(Calendar.MINUTE, tiempo);
-            System.out.print("Segundo: ");
-            tiempo = (int) IO.readNumber();
-            horaInicio.set(Calendar.SECOND, tiempo);
-            System.out.println("Introduzca la hora a la que debe terminar la reunion:");
-            System.out.print("Hora: ");
-            tiempo = (int) IO.readNumber();
-            horaInicio.set(Calendar.HOUR, tiempo);
-            System.out.print("Minuto: ");
-            tiempo = (int) IO.readNumber();
-            horaInicio.set(Calendar.MINUTE, tiempo);
-            System.out.print("Segundo: ");
-            tiempo = (int) IO.readNumber();
-            horaInicio.set(Calendar.SECOND, tiempo);
-            controlador.addReunion(titulo, fecha, horaInicio, horaFin, lugar);
-            int parada = 2;
+            if (controlador.introducirReunion(titulo) == null) {
+                System.out.print("Lugar: ");
+                lugar = IO.readLine();
+                System.out.println("Introduzca la fecha de la reunión:");
+                System.out.print("Año: ");
+                anyo = (int) IO.readNumber();
+                System.out.print("Mes: ");
+                mes = (int) IO.readNumber();
+                System.out.print("Día: ");
+                dia = (int) IO.readNumber();
+                fecha.set(anyo, mes, dia);
+                horaInicio = fecha;
+                horaFin = fecha;
+                System.out.println("Introduzca la hora de comienzo de la reunión:");
+                System.out.print("Hora: ");
+                tiempo = (int) IO.readNumber();
+                horaInicio.set(Calendar.HOUR, tiempo);
+                System.out.print("Minuto: ");
+                tiempo = (int) IO.readNumber();
+                horaInicio.set(Calendar.MINUTE, tiempo);
+                horaInicio.set(Calendar.SECOND, 0);
+                System.out.println("Introduzca la hora a la que debe terminar la reunión:");
+                System.out.print("Hora: ");
+                tiempo = (int) IO.readNumber();
+                horaInicio.set(Calendar.HOUR, tiempo);
+                System.out.print("Minuto: ");
+                tiempo = (int) IO.readNumber();
+                horaInicio.set(Calendar.MINUTE, tiempo);
+                horaInicio.set(Calendar.SECOND, 0);
+                controlador.addReunion(titulo, fecha, horaInicio, horaFin, lugar);
+                int parada = 2;
 
-            //METIENDO PUNTOS DEL ORDEN DEL DIA
-            while (parada == 2) {
-                System.out.println("Introduzca los datos del punto del orden del dia");
-                System.out.print("Url: ");
-                url = IO.readLine();
-                System.out.print("Descripcion: ");
-                descripcion = IO.readLine();
-                controlador.addPuntoDia(url, titulo, descripcion);
-                int opc = 0;
-                while (opc != 1) {
-                    System.out.println("\t1. Confimar Reunion");
-                    System.out.println("\t2. Añadir algun punto mas");
-                    opc = (int) IO.readNumber();
-                    System.out.println("");
-                    switch (opc) {
-                        case 1:
-                            controlador.confirmarReunion();
-                            System.out.println("Reunion creada satisfactoriamente.");
-                            break;
-                        case 2:
-                            System.out.println("Vamos añadir un punto del dia mas.");
-                            break;
-                        default:
+                //METIENDO PUNTOS DEL ORDEN DEL DIA
+                while (parada == 2) {
+                    System.out.println("Introduzca los datos del punto del orden del dia");
+                    System.out.print("URL: ");
+                    url = IO.readLine();
+                    System.out.print("Descripción: ");
+                    descripcion = IO.readLine();
+                    controlador.addPuntoDia(url, titulo, descripcion);
+                    int opc = 0;
+                    while (opc != 1) {
+                        System.out.println("\t1. Confimar Reunión");
+                        System.out.println("\t2. Añadir algun punto mas");
+                        opc = (int) IO.readNumber();
+                        System.out.println("");
+                        switch (opc) {
+                            case 1:
+                                controlador.confirmarReunion();
+                                System.out.println("Reunión creada satisfactoriamente.");
+                                break;
+                            case 2:
+                                System.out.println("Añadir punto del día.");
+                                break;
+                            default:
+                                System.out.println("Opción inválida.");
+                                break;
 
-                            System.out.println("Opción inválida.");
-                            break;
-
+                        }
                     }
                 }
+            } else {
+                System.out.println("La reunión ya existe");
             }
 
         } else {
 
-            System.out.println("La Comision no existe.");
+            System.out.println("La Comisión no existe.");
         }
 
     }
@@ -519,29 +518,23 @@ public class Pantalla {
         String nombre, titulo;
         int anyo;
 
-        System.out.println("Introduzca nombre de la Comision: ");
+        System.out.println("Introduzca nombre de la Reunión: ");
         nombre = IO.readLine();
         if (controlador.introducirComision(nombre) != null) {
 
             System.out.println(controlador.introducirComision(nombre).toString());
-
-            System.out.print("Titulo: ");
-            titulo = IO.readLine();
-            System.out.print("Año de la reunion: ");
+            System.out.print("Año de la reunión: ");
             anyo = (int) IO.readNumber();
-
-            if (controlador.introducirReunionAnual(titulo, anyo) != null) {
-
-                System.out.println(controlador.introducirReunionAnual(titulo, anyo));
-
+            controlador.listarReunionAnyo(anyo);
+            System.out.print("Indica un titulo de la lista: ");
+            titulo = IO.readLine();
+            if (controlador.introducirReunion(titulo) != null) {
+                System.out.println(controlador.introducirReunion(titulo));
             } else {
-
-                System.out.println("No existe la reunion introducida.");
-
+                System.out.println("No existe la reunión introducida.");
             }
         } else {
-
-            System.out.println("La Comision no existe.");
+            System.out.println("La Comisión no existe.");
         }
 
     }
@@ -552,28 +545,23 @@ public class Pantalla {
         Calendar fecha_convocatoria = Calendar.getInstance();
         System.out.print("Nombre de la Comision: ");
         nombre = IO.readLine();
-        controlador.introducirComision(nombre);
-
         if (controlador.introducirComision(nombre) != null) {
-
             System.out.println(controlador.introducirComision(nombre).toString());
-
-            System.out.print("Titulo: ");
+            System.out.print("Título: ");
             titulo = IO.readLine();
-
             if (controlador.introducirReunion(titulo) != null) {
-
-                controlador.introducirFechaConvocatoria(fecha_convocatoria);
-                System.out.println("Convocatoria Realizada");
-                System.out.println(controlador.introducirReunion(titulo));
+                if (controlador.introducirReunion(titulo).getFecha_convocatoria() == null) {
+                    controlador.introducirFechaConvocatoria(fecha_convocatoria);
+                    System.out.println("Convocatoria Realizada");
+                    System.out.println(controlador.introducirReunion(titulo));
+                } else {
+                    System.out.println("Esta reunión ya tiene una convocatoria asignada");
+                }
             } else {
-
-                System.out.println("No existe la reunion introducida.");
-
+                System.out.println("No existe la reunión introducida.");
             }
         } else {
-
-            System.out.println("La Comision no existe.");
+            System.out.println("La Comisión no existe.");
         }
 
     }
@@ -602,18 +590,11 @@ public class Pantalla {
                 controlador.introduceUrl(url);
                 controlador.modificaResolucion(resolucion);
                  */
-
             } else {
-
                 System.out.println("No existe la reunion introducida.");
-
             }
-
         } else {
-
             System.out.println("La Comision no existe.");
         }
-
     }
-
 }

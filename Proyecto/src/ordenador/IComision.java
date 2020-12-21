@@ -1,8 +1,10 @@
 package ordenador;
 
+import java.util.List;
+
 /**
  *
- * @author Alberto García Gonzalez,Juan Moreno Galvarro,Alejandro Román Caballero
+ * @author Alberto García Gonzalez,Juan Moreno Galbarro,Alejandro Román Caballero
  */
 
 
@@ -15,7 +17,7 @@ public interface IComision {
 
     public void reunionNueva(Reunion r);
 
-    public Reunion obtenerReunionAnual(String titulo, int anyo);
+    public List<Reunion> obtenerReunionAnual(int anyo);
 
     public Reunion obtenerReunion(String titulo);
 }

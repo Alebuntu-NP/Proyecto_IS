@@ -113,11 +113,18 @@ public class Ordenador implements IOrdenador {
     }
 
     @Override
-    public Reunion introducirReunionAnual(String titulo, int anyo) {
+    public void listarReunionAnyo( int anyo) {
 
-        reunion = comision.obtenerReunionAnual(titulo, anyo);
+        List<Reunion> listR = comision.obtenerReunionAnual(anyo);
 
-        return reunion;
+        Iterator it;
+        
+        it = listR.iterator();
+        
+        while(it.hasNext()){
+            System.out.println(it.next());
+        }
+        
     }
 
     @Override

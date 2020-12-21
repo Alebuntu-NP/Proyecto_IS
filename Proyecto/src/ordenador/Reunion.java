@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  *
- * @author Alberto García Gonzalez,Juan Moreno Galvarro,Alejandro Román Caballero
+ * @author Alberto García Gonzalez,Juan Moreno Galbarro,Alejandro Román Caballero
  */
 public class Reunion implements IReunion {
 
@@ -76,6 +76,15 @@ public class Reunion implements IReunion {
 
     public Calendar getFecha() {
         return fecha;
+    }
+
+    public Calendar getFecha_convocatoria() {
+        return fecha_convocatoria;
+    }
+
+    @Override
+    public String toString() {
+        return "Título: " + titulo + " Fecha de la Reunión: " + fecha.get(Calendar.DATE)+"/"+fecha.get(Calendar.MONTH)+"/"+fecha.get(Calendar.YEAR)+ " Fecha de la Convocatoria: "+ fecha_convocatoria.get(Calendar.DATE)+"/"+fecha_convocatoria.get(Calendar.MONTH)+"/"+fecha_convocatoria.get(Calendar.YEAR)+ " Hora de Inicio: " + horaInicio.get(Calendar.HOUR)+":"+horaInicio.get(Calendar.MINUTE) + " Hora Finalización: " + horaFin.get(Calendar.HOUR)+":"+horaFin.get(Calendar.MINUTE) + " Lugar: " + lugar + " Lista de Miembros: " + listM + " Lista de Puntos de Orden del Dia: " + listPod;
     }
 
     

@@ -53,6 +53,7 @@ public class Comision implements IComision {
         if (!encontrado) {
             ldc = new LineaDeComision(fechaAlta, fechaBaja, puesto, m);
             this.listLdc.add(ldc);
+            System.out.println("Miembro ha sido dado de alta en una comisión.");
         }
 
     }
@@ -79,10 +80,10 @@ public class Comision implements IComision {
                 }
             }
         }
-        if(!encontrado){
-            System.out.println("El miembro no existe en l a comisión");
+        if (!encontrado) {
+            System.out.println("El miembro no existe en la comisión");
         }
-        
+
     }
 
     @Override
@@ -93,44 +94,35 @@ public class Comision implements IComision {
     }
 
     @Override
-    public Reunion obtenerReunionAnual(String titulo, int anyo) {
+    public List<Reunion> obtenerReunionAnual(int anyo) {
 
-        Reunion r = null;
+        List<Reunion> lReunion = new ArrayList();
+        Reunion r;
         Iterator it;
-
         it = listR.iterator();
-
         while (it.hasNext()) {
-
             r = (Reunion) it.next();
-            if (r.getTitulo().equals(titulo) && r.getFecha().get(Calendar.YEAR) == anyo) {
-
-                return r;
-
+            if  (r.getFecha().get(Calendar.YEAR) == anyo) {
+                lReunion.add(r);
             }
-
         }
 
-        return r;
+        return lReunion;
 
     }
 
     @Override
+    // Método que uilizamos para realizar la convocatoria, simplemente viendo si la reunión existe o no
     public Reunion obtenerReunion(String titulo) {
         Reunion r = null;
+        Reunion raux;
         Iterator it;
-
         it = listR.iterator();
-
         while (it.hasNext()) {
-
-            r = (Reunion) it.next();
-            if (r.getTitulo().equals(titulo)) {
-
-                return r;
-
+            raux = (Reunion) it.next();
+            if (raux.getTitulo().equals(titulo)) {
+                r = raux;
             }
-
         }
 
         return r;
@@ -164,7 +156,7 @@ public class Comision implements IComision {
 
     @Override
     public String toString() {
-        return "Nombre: " + nombre + " Descripcion: " + descripcion + " Miembros: " + listLdc + " Reuniones: " + listR + '}';
+        return "Nombre: " + nombre + " Descripcion: " + descripcion + " Miembros: " + listLdc + " Reuniones: " + listR;
     }
 
 }

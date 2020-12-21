@@ -35,7 +35,7 @@ public interface IOrdenador {
 
     public void confirmarReunion();
 
-    public Reunion introducirReunionAnual(String titulo, int anyo);
+    public void listarReunionAnyo(int anyo);
 
     public Reunion introducirReunion(String titulo);
 
