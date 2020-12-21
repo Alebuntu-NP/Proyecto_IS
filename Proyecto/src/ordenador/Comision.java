@@ -164,7 +164,7 @@ public class Comision implements IComision {
 
     @Override
     public String toString() {
-        return "Comision{" + "nombre=" + nombre + ", descripcion=" + descripcion + ", listLdc=" + listLdc + ", listR=" + listR + '}';
+        return "Nombre: " + nombre + " Descripcion: " + descripcion + " Miembros: " + listLdc + " Reuniones: " + listR + '}';
     }
 
 }

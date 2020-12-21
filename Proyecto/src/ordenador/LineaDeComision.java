@@ -21,9 +21,6 @@ public class LineaDeComision implements ILineaDeComision {
     }
     
     
-    
-    
-    @Override
     public void setFechaBaja(Calendar fechaActual) {
         
         this.fechaBaja= fechaActual;
@@ -40,6 +37,10 @@ public class LineaDeComision implements ILineaDeComision {
 
     public Calendar getFechaBaja() {
         return fechaBaja;
+    }
+
+    public String toString() {
+        return "DNI del Miembro: "+ miembro.getDni() + " Fecha de Alta: " + fechaAlta.getTime() + " Fecha de Baja: " + fechaBaja.getTime() + " Puesto: " + puesto;
     }
     
     
