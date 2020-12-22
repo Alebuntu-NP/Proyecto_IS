@@ -25,16 +25,16 @@ public class prueba {
 
         
         // El email a validar
-        String email = "FF@GMAIL.COM";
+        String email = "FF@GMAIL.com";
         
         // El email a validar
         String dni = "47426785A";
 
         Matcher matherEMAIL = pat.matcher(email);
 
-        //Matcher matherDNI = patron.matcher(dni);
+        Matcher matherDNI = patron.matcher(dni);
         
-        if (matherEMAIL.find() == true) {
+        if (pat.matcher(email).find() == true) {
             System.out.println("El email ingresado es válido.");
         } else {
             System.out.println("El email ingresado es inválido.");
