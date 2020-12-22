@@ -9,6 +9,6 @@ package ordenador;
 public interface IPuntoOrdenDia {
 
 
-    public void cambiaDatosResolucion(String resolucion);
+    public void cambioDatosResolucion(String resolucion);
 
 }
