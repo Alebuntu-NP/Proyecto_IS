@@ -27,9 +27,10 @@ public class Departamento implements IDepartamento {
     public int miembroNuevo(Miembro m) {
         int res = 0;
         if (listMiem.contains(m)) {
-            res = -1; // devolverá -1 si el miembro que estamos introduciendo ya existe.
+            res = 0; // devolverá -1 si el miembro que estamos introduciendo ya existe.
         } else {
             listMiem.add(m);
+            res = 1;
         }
         return res;
 

@@ -21,8 +21,15 @@ public class Ordenador implements IOrdenador {
     }
 
     @Override
-    public int addMiembro(String nombre, String apellidos, String dni, String direccion, int telefono, String email) {
+    public int addMiembro(String nombre, String apellidos, String dni, String direccion, int telefono, String email){
+        try{
+            
         miembro = new Miembro(nombre, apellidos, dni, direccion, telefono, email);
+        
+        }catch(Exception e){
+            System.out.println("datos incorrectos");
+            return -1;
+        }
         return departamento.miembroNuevo(miembro);
 
     }

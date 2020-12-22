@@ -107,14 +107,11 @@ public class Pantalla {
 
     private void mostrarAltaMiembro() {
 
-        int fallo = 0;
-
-       
+        int fallo;
+        do {
             System.out.println("Introduzca los datos del Miembro");
             System.out.print("DNI: ");
-            
             String dni = IO.readLine();
-            
             System.out.print("Nombre: ");
             String nombre = IO.readLine();
             System.out.print("Apellidos: ");
@@ -126,15 +123,16 @@ public class Pantalla {
             System.out.print("Email: ");
             String email = IO.readLine();
 
-        fallo = controlador.addMiembro(nombre, apellidos, dni, direccion, telefono, email);
-        System.out.println("");
+            fallo = controlador.addMiembro(nombre, apellidos, dni, direccion, telefono, email);
+            System.out.println("");
 
-        if (fallo == -1) {
-            System.out.println("El miembro con DNI " + dni + "ya existe");
+            if (fallo == 0) {
+                System.out.println("El miembro con DNI " + dni + "ya existe");
 
-        } else {
-            System.out.println("El miembro se ha registrado correctamente.");
-        }
+            } else if (fallo == 1) {
+                System.out.println("El miembro se ha registrado correctamente.");
+            }
+        } while (fallo == -1);
 
     }
 
