@@ -364,10 +364,8 @@ public class Pantalla {
         System.out.println("Introduzca nombre de la Comision: ");
         nombre = IO.readLine();
         if (controlador.introducirComision(nombre) != null) {
-
             System.out.println(controlador.introducirComision(nombre).toString());
         } else {
-
             System.out.println("La Comision no existe.");
         }
     }
@@ -481,13 +479,12 @@ public class Pantalla {
                     System.out.print("Descripción: ");
                     descripcion = IO.readLine();
                     controlador.addPuntoDia(url, titulo, descripcion);
-                    int opc = 0;
-                    while (opc != 1) {
+                    do{
                         System.out.println("\t1. Confimar Reunión");
-                        System.out.println("\t2. Añadir algun punto mas");
-                        opc = (int) IO.readNumber();
+                        System.out.println("\t2. Añadir algun punto más");
+                        parada = (int) IO.readNumber();
                         System.out.println("");
-                        switch (opc) {
+                        switch (parada) {
                             case 1:
                                 controlador.confirmarReunion();
                                 System.out.println("Reunión creada satisfactoriamente.");
@@ -501,6 +498,7 @@ public class Pantalla {
 
                         }
                     }
+                    while (parada != 1 && parada != 2);
                 }
             } else {
                 System.out.println("La reunión ya existe");
@@ -518,15 +516,14 @@ public class Pantalla {
         String nombre, titulo;
         int anyo;
 
-        System.out.println("Introduzca nombre de la Reunión: ");
+        System.out.println("Introduzca nombre de la Comisión: ");
         nombre = IO.readLine();
         if (controlador.introducirComision(nombre) != null) {
-
             System.out.println(controlador.introducirComision(nombre).toString());
             System.out.print("Año de la reunión: ");
             anyo = (int) IO.readNumber();
             controlador.listarReunionAnyo(anyo);
-            System.out.print("Indica un titulo de la lista: ");
+            System.out.print("Indica un título de la lista: ");
             titulo = IO.readLine();
             if (controlador.introducirReunion(titulo) != null) {
                 System.out.println(controlador.introducirReunion(titulo));

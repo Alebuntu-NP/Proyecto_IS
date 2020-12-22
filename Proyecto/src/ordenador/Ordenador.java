@@ -49,8 +49,7 @@ public class Ordenador implements IOrdenador {
     public int addComision(String nombre, String descripcion) {
         comision = new Comision(nombre, descripcion);
         return departamento.comisionNueva(comision);
-        
-        
+
     }
 
     @Override
@@ -113,18 +112,18 @@ public class Ordenador implements IOrdenador {
     }
 
     @Override
-    public void listarReunionAnyo( int anyo) {
+    public void listarReunionAnyo(int anyo) {
 
         List<Reunion> listR = comision.obtenerReunionAnual(anyo);
 
         Iterator it;
-        
+
         it = listR.iterator();
-        
-        while(it.hasNext()){
+
+        while (it.hasNext()) {
             System.out.println(it.next());
         }
-        
+
     }
 
     @Override
