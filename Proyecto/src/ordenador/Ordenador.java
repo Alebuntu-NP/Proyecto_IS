@@ -84,6 +84,7 @@ public class Ordenador implements IOrdenador {
     public Comision introducirComision(String nombre) {
         
         comision = departamento.obtenerComision(nombre);
+        
         return comision;
     }
 
