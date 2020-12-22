@@ -398,6 +398,9 @@ public class Pantalla {
             }
             if (opc != 0) {
                 realizarOpcionGestionReunion(opc);
+                System.out.println("");
+                System.out.println("Pulsa cualquier tecla para ir al menú");
+                IO.readLine();
             }
         } while (opc != 0);
     }
@@ -463,11 +466,11 @@ public class Pantalla {
                 System.out.println("Introduzca la hora a la que debe terminar la reunión:");
                 System.out.print("Hora: ");
                 tiempo = (int) IO.readNumber();
-                horaInicio.set(Calendar.HOUR, tiempo);
+                horaFin.set(Calendar.HOUR, tiempo);
                 System.out.print("Minuto: ");
                 tiempo = (int) IO.readNumber();
-                horaInicio.set(Calendar.MINUTE, tiempo);
-                horaInicio.set(Calendar.SECOND, 0);
+                horaFin.set(Calendar.MINUTE, tiempo);
+                horaFin.set(Calendar.SECOND, 0);
                 controlador.addReunion(titulo, fecha, horaInicio, horaFin, lugar);
                 int parada = 2;
 
@@ -476,29 +479,32 @@ public class Pantalla {
                     System.out.println("Introduzca los datos del punto del orden del dia");
                     System.out.print("URL: ");
                     url = IO.readLine();
-                    System.out.print("Descripción: ");
-                    descripcion = IO.readLine();
-                    controlador.addPuntoDia(url, titulo, descripcion);
-                    do{
-                        System.out.println("\t1. Confimar Reunión");
-                        System.out.println("\t2. Añadir algun punto más");
-                        parada = (int) IO.readNumber();
-                        System.out.println("");
-                        switch (parada) {
-                            case 1:
-                                controlador.confirmarReunion();
-                                System.out.println("Reunión creada satisfactoriamente.");
-                                break;
-                            case 2:
-                                System.out.println("Añadir punto del día.");
-                                break;
-                            default:
-                                System.out.println("Opción inválida.");
-                                break;
+                    if (controlador.introduceUrl(url) == null) {
+                        System.out.print("Descripción: ");
+                        descripcion = IO.readLine();
+                        controlador.addPuntoDia(url, titulo, descripcion);
+                        do {
+                            System.out.println("\t1. Confimar Reunión");
+                            System.out.println("\t2. Añadir algún punto más");
+                            parada = (int) IO.readNumber();
+                            System.out.println("");
+                            switch (parada) {
+                                case 1:
+                                    controlador.confirmarReunion();
+                                    System.out.println("Reunión creada satisfactoriamente.");
+                                    break;
+                                case 2:
+                                    System.out.println("Añadir punto del día.");
+                                    break;
+                                default:
+                                    System.out.println("Opción inválida.");
+                                    break;
 
-                        }
+                            }
+                        } while (parada != 1 && parada != 2);
+                    } else {
+                        System.out.println("El punto de orden del día ya existe");
                     }
-                    while (parada != 1 && parada != 2);
                 }
             } else {
                 System.out.println("La reunión ya existe");
@@ -566,16 +572,15 @@ public class Pantalla {
     private void mostrarCompletarReunion() {
 
         // Revisar el caso de uso de completar reunion.
-        String nombre, titulo;
-        int hora, minuto, segundo;
+        String nombre, titulo, url, resolucion;
         Calendar horaFin = Calendar.getInstance();
-        System.out.println("Introduzca nombre de la Comision: ");
+        System.out.println("Introduzca nombre de la Comisión: ");
         nombre = IO.readLine();
         if (controlador.introducirComision(nombre) != null) {
 
             System.out.println(controlador.introducirComision(nombre).toString());
 
-            System.out.print("Titulo: ");
+            System.out.print("Título: ");
             titulo = IO.readLine();
 
             if (controlador.introducirReunion(titulo) != null) {
@@ -583,15 +588,44 @@ public class Pantalla {
                 System.out.println(controlador.introducirReunion(titulo));
 
                 controlador.modificarHoraFin(horaFin);
-                /*
-                controlador.introduceUrl(url);
-                controlador.modificaResolucion(resolucion);
-                 */
+
+                int parada = 2;
+                while (parada == 2) {
+                    System.out.println("Introduzca los datos del punto del orden del dia");
+                    System.out.print("URL: ");
+                    url = IO.readLine();
+                    if (controlador.introduceUrl(url) != null) {
+                        System.out.print("Resolución: ");
+                        resolucion = IO.readLine();
+                        controlador.modificaResolucion(resolucion);
+                        do {
+                            System.out.println("\t1. Terminar Reunión");
+                            System.out.println("\t2. Añadir Resolución");
+                            parada = (int) IO.readNumber();
+                            System.out.println("");
+                            switch (parada) {
+                                case 1:
+                                    System.out.println("Reunión terminada satisfactoriamente.");
+                                    break;
+                                case 2:
+                                    System.out.println("Añadir Resolución.");
+                                    break;
+                                default:
+                                    System.out.println("Opción inválida.");
+                                    break;
+
+                            }
+                        } while (parada != 1 && parada != 2);
+
+                    } else {
+                        System.out.println("No exite un punto de orden del día con esa URL");
+                    }
+                }
             } else {
-                System.out.println("No existe la reunion introducida.");
+                System.out.println("No existe la reunión introducida.");
             }
         } else {
-            System.out.println("La Comision no existe.");
+            System.out.println("La Comisión no existe.");
         }
     }
 }

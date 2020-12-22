@@ -11,7 +11,7 @@ public class PuntoOrdenDia implements IPuntoOrdenDia {
     private String url;
     private String titulo;
     private String descripcion;
-    private String resolucion;
+    private String resolucion = null;
 
     public PuntoOrdenDia(String url, String titulo, String descripcion) {
         this.url = url;

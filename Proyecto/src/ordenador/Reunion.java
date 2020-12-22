@@ -84,7 +84,17 @@ public class Reunion implements IReunion {
 
     @Override
     public String toString() {
-        return "Título: " + titulo + " Fecha de la Reunión: " + fecha.get(Calendar.DATE)+"/"+fecha.get(Calendar.MONTH)+"/"+fecha.get(Calendar.YEAR)+ " Fecha de la Convocatoria: "+ fecha_convocatoria.get(Calendar.DATE)+"/"+fecha_convocatoria.get(Calendar.MONTH)+"/"+fecha_convocatoria.get(Calendar.YEAR)+ " Hora de Inicio: " + horaInicio.get(Calendar.HOUR)+":"+horaInicio.get(Calendar.MINUTE) + " Hora Finalización: " + horaFin.get(Calendar.HOUR)+":"+horaFin.get(Calendar.MINUTE) + " Lugar: " + lugar + " Lista de Miembros: " + listM + " Lista de Puntos de Orden del Dia: " + listPod;
+        String  reu = "Título: " + titulo + " Fecha de la Reunión: " + fecha.get(Calendar.DATE)+"/"+fecha.get(Calendar.MONTH)+"/"+fecha.get(Calendar.YEAR) + " Fecha de la Convocatoria: ";
+    
+        if(fecha_convocatoria == null){
+            reu += null;
+        }
+        else{
+           String fb = fecha_convocatoria.get(Calendar.DATE) + "/"+fecha_convocatoria.get(Calendar.MONTH)+"/"+fecha_convocatoria.get(Calendar.YEAR);
+           reu += fb;
+        }
+        
+        return reu + " Hora de Inicio: " + horaInicio.get(Calendar.HOUR)+":"+horaInicio.get(Calendar.MINUTE) + " Hora Finalización: " + horaFin.get(Calendar.HOUR)+":"+horaFin.get(Calendar.MINUTE) + " Lugar: " + lugar + " Lista de Miembros: " + listM + " Lista de Puntos de Orden del Dia: " + listPod;
     }
 
     
