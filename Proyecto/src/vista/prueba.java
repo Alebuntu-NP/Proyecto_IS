@@ -18,15 +18,34 @@ public class prueba {
 
         // Patrón para validar el email
         Pattern pat = Pattern.compile("([A-Za-z0-9]+(\\.?[A-Za-z0-9])*)+@(([A-Za-z]+)\\.([A-Za-z]+))+");
+        
+        //patro para validar dni 
+        Pattern patron = Pattern.compile("[0-9]{7,8}[A-Z a-z]");
+        
+
+        
         // El email a validar
-        String email = "JUANMOGAL20@GMAIL";
+        String email = "FF@GMAIL.COM";
+        
+        // El email a validar
+        String dni = "47426785A";
 
-        Matcher mather = pat.matcher(email);
+        Matcher matherEMAIL = pat.matcher(email);
 
-        if (mather.find() == true) {
+        //Matcher matherDNI = patron.matcher(dni);
+        
+        if (matherEMAIL.find() == true) {
             System.out.println("El email ingresado es válido.");
         } else {
             System.out.println("El email ingresado es inválido.");
         }
+
+//        if (matherDNI.find() == true && dni.length() == 9) {
+//            System.out.println("El dni ingresado es válido.");
+//        } else {
+//            System.out.println("El dni ingresado es inválido.");
+//        }
+
+
     }
 }

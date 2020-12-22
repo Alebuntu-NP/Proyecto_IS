@@ -2,12 +2,14 @@ package vista;
 
 import java.util.Calendar;
 import java.util.Scanner;
+import ordenador.MyException;
 import ordenador.Ordenador;
 import poo.io.IO;
 
 /**
  *
- * @author Alberto García Gonzalez,Juan Moreno Galvarro,Alejandro Román Caballero
+ * @author Alberto García Gonzalez,Juan Moreno Galbarro,Alejandro Román
+ * Caballero
  */
 public class Pantalla {
 
@@ -107,19 +109,22 @@ public class Pantalla {
 
         int fallo = 0;
 
-        System.out.println("Introduzca los datos del Miembro");
-        System.out.print("Dni: ");
-        String dni = IO.readLine();
-        System.out.print("Nombre: ");
-        String nombre = IO.readLine();
-        System.out.print("Apellidos: ");
-        String apellidos = IO.readLine();
-        System.out.print("Dirección: ");
-        String direccion = IO.readLine();
-        System.out.print("Telefono: ");
-        int telefono = (int) IO.readNumber();
-        System.out.print("Email: ");
-        String email = IO.readLine();
+       
+            System.out.println("Introduzca los datos del Miembro");
+            System.out.print("DNI: ");
+            
+            String dni = IO.readLine();
+            
+            System.out.print("Nombre: ");
+            String nombre = IO.readLine();
+            System.out.print("Apellidos: ");
+            String apellidos = IO.readLine();
+            System.out.print("Dirección: ");
+            String direccion = IO.readLine();
+            System.out.print("Teléfono: ");
+            int telefono = (int) IO.readNumber();
+            System.out.print("Email: ");
+            String email = IO.readLine();
 
         fallo = controlador.addMiembro(nombre, apellidos, dni, direccion, telefono, email);
         System.out.println("");
