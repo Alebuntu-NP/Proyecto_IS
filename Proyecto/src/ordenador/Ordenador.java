@@ -17,9 +17,8 @@ public class Ordenador implements IOrdenador {
     private PuntoOrdenDia puntoOrdenDia;
     private Reunion reunion;
     private Comision comision;
-    
+
     public static final String LETRAS_ROJAS = "\u001B[31m";
-    
 
     public Ordenador(Departamento departamento) {
         this.departamento = departamento;
@@ -41,8 +40,7 @@ public class Ordenador implements IOrdenador {
                 resultadoAnadir = -1;
                 if (patronDNI.matcher(dni).find() != true && patronEmail.matcher(email).find() != true) {
                     System.out.println(LETRAS_ROJAS + "Introduzca un DNI y un email válido" + LETRAS_ROJAS);
-                }
-                else if (patronDNI.matcher(dni).find() != true) {
+                } else if (patronDNI.matcher(dni).find() != true) {
                     System.out.println(LETRAS_ROJAS + "Introduzca un DNI válido" + LETRAS_ROJAS);
                 } else if (patronEmail.matcher(email).find() != true) {
                     System.out.println(LETRAS_ROJAS + "Introduzca un email válido" + LETRAS_ROJAS);
@@ -84,7 +82,7 @@ public class Ordenador implements IOrdenador {
 
     @Override
     public Comision introducirComision(String nombre) {
-
+        
         comision = departamento.obtenerComision(nombre);
         return comision;
     }

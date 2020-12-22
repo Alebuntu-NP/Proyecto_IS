@@ -2,7 +2,6 @@ package vista;
 
 import java.util.Calendar;
 import java.util.Scanner;
-import ordenador.MyException;
 import ordenador.Ordenador;
 import poo.io.IO;
 
@@ -174,13 +173,12 @@ public class Pantalla {
 
     private void mostrarModificacionMiembro() {
 
-        int fallo = -1;
+        int fallo = -1; // para que usamos esta variable??
 
         System.out.print("Introduzca dni del Miembro: ");
         String dni = IO.readLine();
         if (controlador.introducirDni(dni) != null) {
-
-            while (fallo == -1) {
+            while(fallo == -1) {
 
                 System.out.println("Introduzca los nuevos datos del miembro.");
                 System.out.print("Nombre: ");
@@ -195,14 +193,12 @@ public class Pantalla {
                 String email = IO.readLine();
 
                 controlador.cambiarMiembro(nombre, apellidos, direccion, telefono, email);
-                fallo = 0;
+                fallo = 0; //ponemos a 0 la variable si se ha modificado correctamente, para que no vuelva a entrar.
                 System.out.println("");
                 System.out.println("El Miembro se ha modificado correctamente.");
-
-            }
+            } 
 
         } else {
-
             System.out.println("El cliente seleccionado no existe.");
         }
     }
@@ -276,7 +272,7 @@ public class Pantalla {
 
     private void mostrarAltaComision() {
         String nombre, descripcion;
-        int fallo = -1;
+        int fallo;
 
         System.out.println("Introduzca los datos de la Comisión");
         System.out.print("Nombre: ");
@@ -288,33 +284,28 @@ public class Pantalla {
         System.out.println("");
 
         if (fallo == -1) {
-            System.out.println("La Comisión ya existe");
-
+            System.out.println("La comisión ya existe");
         } else {
-
-            System.out.println("La Comisión se ha registrado correctamente.");
+            System.out.println("La comisión se ha registrado correctamente.");
 
         }
     }
 
     private void mostrarIncluirMiembroEnComision() {
 
-        String dni;
-        String nombre;
-        String puesto;
         System.out.println("Introduzca nombre de la Comisión: ");
-        nombre = IO.readLine();
+        String nombre = IO.readLine();
         if (controlador.introducirComision(nombre) != null) {
 
             System.out.println(controlador.introducirComision(nombre).toString());
             System.out.println("\nIntroduzca DNI del Miembro: ");
-            dni = IO.readLine();
+            String dni = IO.readLine();
 
             if (controlador.introducirDni(dni) != null) {
 
                 System.out.println(controlador.introducirDni(dni).toString());
                 System.out.println("\nIntroduzca puesto del Miembro: ");
-                puesto = IO.readLine();
+                String puesto = IO.readLine();
                 controlador.introducirMiembro(dni, puesto);
 
             } else {
@@ -322,7 +313,7 @@ public class Pantalla {
             }
 
         } else {
-            System.out.println("La Comisión no existe.");
+            System.out.println("La comisión no existe.");
         }
 
     }
@@ -621,7 +612,7 @@ public class Pantalla {
                         } while (parada != 1 && parada != 2);
 
                     } else {
-                        System.out.println("No exite un punto de orden del día con esa URL");
+                        System.out.println("No existe un punto de orden del día con esa URL");
                     }
                 }
             } else {
