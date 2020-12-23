@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  *
- * @author Alberto García Gonzalez,Juan Moreno Galvarro,Alejandro Román Caballero
+ * @author Alberto García Gonzalez,Juan Moreno Galbarro,Alejandro Román Caballero
  */
 // Terminado solo falta revision por parte del grupo
 public class Departamento implements IDepartamento {

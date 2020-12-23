@@ -13,6 +13,8 @@ import poo.io.IO;
 public class Pantalla {
 
     private final Ordenador controlador;
+    public static final String LETRAS_ROJAS = "\u001B[31m";
+    public static final String LETRAS_DEFAULT = "\u001B[0m";
 
     public Pantalla(Ordenador controlador) {
         this.controlador = controlador;
@@ -422,8 +424,8 @@ public class Pantalla {
         int tiempo;
         int anyo, mes, dia;
         Calendar fecha = Calendar.getInstance();
-        Calendar horaInicio;
-        Calendar horaFin;
+        Calendar horaInicio = Calendar.getInstance();
+        Calendar horaFin = Calendar.getInstance();
         String titulo, lugar, nombre, url, descripcion;
 
         System.out.println("Introduzca nombre de la Comisión: ");
@@ -445,24 +447,25 @@ public class Pantalla {
                 System.out.print("Día: ");
                 dia = (int) IO.readNumber();
                 fecha.set(anyo, mes, dia);
-                horaInicio = fecha;
-                horaFin = fecha;
                 System.out.println("Introduzca la hora de comienzo de la reunión:");
                 System.out.print("Hora: ");
-                tiempo = (int) IO.readNumber();
-                horaInicio.set(Calendar.HOUR, tiempo);
+                int h = (int) IO.readNumber();
                 System.out.print("Minuto: ");
-                tiempo = (int) IO.readNumber();
-                horaInicio.set(Calendar.MINUTE, tiempo);
-                horaInicio.set(Calendar.SECOND, 0);
-                System.out.println("Introduzca la hora a la que debe terminar la reunión:");
-                System.out.print("Hora: ");
-                tiempo = (int) IO.readNumber();
-                horaFin.set(Calendar.HOUR, tiempo);
-                System.out.print("Minuto: ");
-                tiempo = (int) IO.readNumber();
-                horaFin.set(Calendar.MINUTE, tiempo);
-                horaFin.set(Calendar.SECOND, 0);
+                int m = (int) IO.readNumber();
+                horaInicio.set(anyo, mes, dia, h, m, 0);
+                do {
+                    System.out.println("Introduzca la hora a la que debe terminar la reunión:");
+                    System.out.print("Hora: ");
+                    h = (int) IO.readNumber();
+                    System.out.print("Minuto: ");
+                    m = (int) IO.readNumber();
+                    horaFin.set(anyo, mes, dia, h, m, 0);
+                    if (horaFin.before(horaInicio)) {
+                        System.out.println(LETRAS_ROJAS + "La hora de finalización de la reunión no puede ser anterior a la de inicio" + LETRAS_DEFAULT);
+                    } else if (horaFin.equals(horaInicio)) {
+                        System.out.println(LETRAS_ROJAS + "La hora de finalización de la reunión no puede ser igual a la de inicio" + LETRAS_DEFAULT);
+                    }
+                } while (horaFin.before(horaInicio) || horaFin.equals(horaInicio));
                 controlador.addReunion(titulo, fecha, horaInicio, horaFin, lugar);
                 int parada = 2;
 

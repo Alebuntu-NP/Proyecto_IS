@@ -4,7 +4,7 @@ import java.util.Calendar;
 
 /**
  *
- * @author Alberto García Gonzalez,Juan Moreno Galvarro,Alejandro Román Caballero
+ * @author Alberto García Gonzalez,Juan Moreno Galbarro,Alejandro Román Caballero
  */
 
 

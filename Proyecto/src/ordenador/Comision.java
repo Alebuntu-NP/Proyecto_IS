@@ -8,7 +8,7 @@ import java.util.Objects;
 
 /**
  *
- * @author Alberto García Gonzalez,Juan Moreno Galvarro,Alejandro Román Caballero
+ * @author Alberto García Gonzalez,Juan Moreno Galbarro,Alejandro Román Caballero
  */
 public class Comision implements IComision {
 

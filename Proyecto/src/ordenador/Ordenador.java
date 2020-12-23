@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 
 /**
  *
- * @author Alberto García Gonzalez,Juan Moreno Galvarro,Alejandro Román
+ * @author Alberto García Gonzalez,Juan Moreno Galbarro,Alejandro Román
  * Caballero
  */
 public class Ordenador implements IOrdenador {
@@ -60,6 +60,7 @@ public class Ordenador implements IOrdenador {
     public Miembro introducirDni(String dni) {
 
         miembro = departamento.obtenerMiembro(dni);
+        
         return miembro;
     }
 
