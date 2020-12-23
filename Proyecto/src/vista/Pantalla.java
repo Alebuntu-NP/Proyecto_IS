@@ -31,7 +31,7 @@ public class Pantalla {
             System.out.println("\n\n--> Introduzca una opción: ");
             opc = (int) IO.readNumber();
             while (opc < 0 || opc > 3) {
-                System.out.println("\n\n--> Introduzca una opción válida: ");
+                System.out.println(LETRAS_ROJAS + "\n\n--> Introduzca una opción válida: " + LETRAS_DEFAULT);
                 opc = (int) IO.readNumber();
                 System.out.println("\n");
             }
@@ -71,7 +71,7 @@ public class Pantalla {
             System.out.print("\n\n--> Introduzca una opción: ");
             opc = (int) IO.readNumber();
             while (opc < 0 || opc > 4) {
-                System.out.print("--> Introduzca una opción valida: ");
+                System.out.print(LETRAS_ROJAS + "--> Introduzca una opción valida: " + LETRAS_DEFAULT);
                 opc = (int) IO.readNumber();
                 System.out.println("\n");
             }
@@ -126,7 +126,7 @@ public class Pantalla {
             System.out.println("");
 
             if (fallo == 0) {
-                System.out.println("El miembro con DNI " + dni + "ya existe");
+                System.out.println(LETRAS_ROJAS + "El miembro con DNI " + dni + "ya existe" + LETRAS_DEFAULT);
 
             } else if (fallo == 1) {
                 System.out.println("El miembro se ha registrado correctamente.");
@@ -160,7 +160,7 @@ public class Pantalla {
                         break;
                     default:
 
-                        System.out.println("Opción inválida.");
+                        System.out.println(LETRAS_ROJAS + "Opción inválida." + LETRAS_DEFAULT);
                         break;
 
                 }
@@ -197,7 +197,7 @@ public class Pantalla {
 
             System.out.println("El miembro se ha modificado correctamente");
         } else {
-            System.out.println("El cliente seleccionado no existe.");
+            System.out.println(LETRAS_ROJAS + "El cliente seleccionado no existe." + LETRAS_DEFAULT);
         }
     }
 
@@ -212,7 +212,7 @@ public class Pantalla {
 
         } else {
 
-            System.out.println("El Miembro no existe.");
+            System.out.println(LETRAS_ROJAS + "El Miembro no existe." + LETRAS_DEFAULT);
         }
     }
 
@@ -232,7 +232,7 @@ public class Pantalla {
             System.out.print("\n\n--> Introduzca una opción: ");
             opc = (int) IO.readNumber();
             while (opc < 0 || opc > 5) {
-                System.out.print("--> Introduzca una opción valida: ");
+                System.out.print(LETRAS_ROJAS + "--> Introduzca una opción valida: " + LETRAS_DEFAULT);
                 opc = (int) IO.readNumber();
                 System.out.println("\n");
             }
@@ -282,7 +282,7 @@ public class Pantalla {
         System.out.println("");
 
         if (fallo == -1) {
-            System.out.println("La comisión ya existe");
+            System.out.println(LETRAS_ROJAS + "La comisión ya existe" + LETRAS_DEFAULT);
         } else {
             System.out.println("La comisión se ha registrado correctamente.");
 
@@ -307,11 +307,11 @@ public class Pantalla {
                 controlador.introducirMiembro(dni, puesto);
 
             } else {
-                System.out.println("El Miembro no existe.");
+                System.out.println(LETRAS_ROJAS + "El Miembro no existe." + LETRAS_DEFAULT);
             }
 
         } else {
-            System.out.println("La comisión no existe.");
+            System.out.println(LETRAS_ROJAS + "La comisión no existe." + LETRAS_DEFAULT);
         }
 
     }
@@ -340,12 +340,12 @@ public class Pantalla {
 
             } else {
 
-                System.out.println("El Miembro no existe.");
+                System.out.println(LETRAS_ROJAS + "El Miembro no existe." + LETRAS_DEFAULT);
             }
 
         } else {
 
-            System.out.println("La Comision no existe.");
+            System.out.println(LETRAS_ROJAS + "La Comision no existe." + LETRAS_DEFAULT);
         }
 
     }
@@ -358,7 +358,7 @@ public class Pantalla {
         if (controlador.introducirComision(nombre) != null) {
             System.out.println(controlador.introducirComision(nombre).toString());
         } else {
-            System.out.println("La Comision no existe.");
+            System.out.println(LETRAS_ROJAS + "La Comision no existe." + LETRAS_DEFAULT);
         }
     }
 
@@ -384,7 +384,7 @@ public class Pantalla {
             System.out.print("\n\n--> Introduzca una opción: ");
             opc = (int) IO.readNumber();
             while (opc < 0 || opc > 4) {
-                System.out.print("--> Introduzca una opción valida: ");
+                System.out.print(LETRAS_ROJAS + "--> Introduzca una opción valida: " + LETRAS_DEFAULT);
                 opc = (int) IO.readNumber();
                 System.out.println("\n");
             }
@@ -488,22 +488,22 @@ public class Pantalla {
                                     System.out.println("Añadir punto del día.");
                                     break;
                                 default:
-                                    System.out.println("Opción inválida.");
+                                    System.out.println(LETRAS_ROJAS + "Opción inválida." + LETRAS_DEFAULT);
                                     break;
 
                             }
                         } while (parada != 1 && parada != 2);
                     } else {
-                        System.out.println("El punto de orden del día ya existe");
+                        System.out.println(LETRAS_ROJAS + "El punto de orden del día ya existe" + LETRAS_DEFAULT);
                     }
                 }
             } else {
-                System.out.println("La reunión ya existe");
+                System.out.println(LETRAS_ROJAS + "La reunión ya existe" + LETRAS_DEFAULT);
             }
 
         } else {
 
-            System.out.println("La Comisión no existe.");
+            System.out.println(LETRAS_ROJAS + "La Comisión no existe." + LETRAS_DEFAULT);
         }
 
     }
@@ -525,10 +525,10 @@ public class Pantalla {
             if (controlador.introducirReunion(titulo) != null) {
                 System.out.println(controlador.introducirReunion(titulo));
             } else {
-                System.out.println("No existe la reunión introducida.");
+                System.out.println(LETRAS_ROJAS + "No existe la reunión introducida." + LETRAS_DEFAULT);
             }
         } else {
-            System.out.println("La Comisión no existe.");
+            System.out.println(LETRAS_ROJAS + "La Comisión no existe." + LETRAS_DEFAULT);
         }
 
     }
@@ -550,16 +550,16 @@ public class Pantalla {
                         System.out.println("Convocatoria Realizada");
                         System.out.println(controlador.introducirReunion(titulo));
                     } else {
-                        System.out.println("La reunión ya ha empezado, no se puede realizar la convocatoria");
+                        System.out.println(LETRAS_ROJAS + "La reunión ya ha empezado, no se puede realizar la convocatoria" + LETRAS_DEFAULT);
                     }
                 } else {
-                    System.out.println("Esta reunión ya tiene una convocatoria asignada");
+                    System.out.println(LETRAS_ROJAS + "Esta reunión ya tiene una convocatoria asignada" + LETRAS_DEFAULT);
                 }
             } else {
-                System.out.println("No existe la reunión introducida.");
+                System.out.println(LETRAS_ROJAS + "No existe la reunión introducida." + LETRAS_DEFAULT);
             }
         } else {
-            System.out.println("La Comisión no existe.");
+            System.out.println(LETRAS_ROJAS + "La Comisión no existe." + LETRAS_DEFAULT);
         }
 
     }
@@ -607,23 +607,23 @@ public class Pantalla {
                                         System.out.println("Añadir Resolución.");
                                         break;
                                     default:
-                                        System.out.println("Opción inválida.");
+                                        System.out.println(LETRAS_ROJAS + "Opción inválida." + LETRAS_DEFAULT);
                                         break;
                                 }
                             } while (parada != 1 && parada != 2);
 
                         } else {
-                            System.out.println("No existe un punto de orden del día con esa URL");
+                            System.out.println(LETRAS_ROJAS + "No existe un punto de orden del día con esa URL" + LETRAS_DEFAULT);
                         }
                     }
                 } else {
-                    System.out.println("La reunión todavía no ha comenzado, por lo que no se puede dar por acabada");
+                    System.out.println(LETRAS_ROJAS + "La reunión todavía no ha comenzado, por lo que no se puede dar por acabada" + LETRAS_DEFAULT);
                 }
             } else {
-                System.out.println("No existe la reunión introducida.");
+                System.out.println(LETRAS_ROJAS + "No existe la reunión introducida." + LETRAS_DEFAULT);
             }
         } else {
-            System.out.println("La Comisión no existe.");
+            System.out.println(LETRAS_ROJAS + "La Comisión no existe." + LETRAS_DEFAULT);
         }
     }
 }

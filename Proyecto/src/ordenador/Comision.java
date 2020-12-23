@@ -12,6 +12,8 @@ import java.util.Objects;
  */
 public class Comision implements IComision {
 
+    public static final String LETRAS_ROJAS = "\u001B[31m";
+    public static final String LETRAS_DEFAULT = "\u001B[0m";
     private String nombre;
     private String descripcion;
     private List<LineaDeComision> listLdc;
@@ -42,7 +44,7 @@ public class Comision implements IComision {
                 //Miramos si el miembro encontrado está dado de baja o no
                 //Si esta dado de alta
                 if (ldc.getFechaBaja() == null) {
-                    System.out.println("El miembro esta dado de alta en la comisión");
+                    System.out.println(LETRAS_ROJAS+"El miembro ya esta dado de alta en la comisión"+LETRAS_DEFAULT);
                 } else {
                     //Si esta dado de baja 
                     encontrado = false;
@@ -76,12 +78,12 @@ public class Comision implements IComision {
                     ldc.setFechaBaja(fechaActual);
                 } else {
                     //Si esta dado de baja 
-                    System.out.println("El miembro ya está dado de baja");
+                    System.out.println(LETRAS_ROJAS+"El miembro ya está dado de baja"+LETRAS_DEFAULT);
                 }
             }
         }
         if (!encontrado) {
-            System.out.println("El miembro no existe en la comisión");
+            System.out.println(LETRAS_ROJAS+"El miembro no existe en la comisión"+LETRAS_DEFAULT);
         }
 
     }
@@ -102,7 +104,7 @@ public class Comision implements IComision {
         it = listR.iterator();
         while (it.hasNext()) {
             r = (Reunion) it.next();
-            if  (r.getFecha().get(Calendar.YEAR) == anyo) {
+            if (r.getFecha().get(Calendar.YEAR) == anyo) {
                 lReunion.add(r);
             }
         }
