@@ -173,13 +173,12 @@ public class Pantalla {
 
     private void mostrarModificacionMiembro() {
 
-        int fallo = -1; // para que usamos esta variable??
+        int fallo;
 
         System.out.print("Introduzca dni del Miembro: ");
         String dni = IO.readLine();
         if (controlador.introducirDni(dni) != null) {
-            while(fallo == -1) {
-
+            do {
                 System.out.println("Introduzca los nuevos datos del miembro.");
                 System.out.print("Nombre: ");
                 String nombre = IO.readLine();
@@ -192,12 +191,11 @@ public class Pantalla {
                 System.out.print("Email: ");
                 String email = IO.readLine();
 
-                controlador.cambiarMiembro(nombre, apellidos, direccion, telefono, email);
-                fallo = 0; //ponemos a 0 la variable si se ha modificado correctamente, para que no vuelva a entrar.
+                fallo = controlador.cambiarMiembro(nombre, apellidos, direccion, telefono, email); //la variable se pondrá a 0 si el cliente se ha modificado correctamente, o a -1 si ha habido algun fallo
                 System.out.println("");
-                System.out.println("El Miembro se ha modificado correctamente.");
-            } 
+            } while (fallo == -1);
 
+            System.out.println("El miembro se ha modificado correctamente");
         } else {
             System.out.println("El cliente seleccionado no existe.");
         }

@@ -19,6 +19,7 @@ public class Ordenador implements IOrdenador {
     private Comision comision;
 
     public static final String LETRAS_ROJAS = "\u001B[31m";
+    public static final String LETRAS_DEFAULT = "\u001B[0m";
 
     public Ordenador(Departamento departamento) {
         this.departamento = departamento;
@@ -39,11 +40,11 @@ public class Ordenador implements IOrdenador {
             } else {
                 resultadoAnadir = -1;
                 if (patronDNI.matcher(dni).find() != true && patronEmail.matcher(email).find() != true) {
-                    System.out.println(LETRAS_ROJAS + "Introduzca un DNI y un email válido" + LETRAS_ROJAS);
+                    System.out.println(LETRAS_ROJAS + "Introduzca un DNI y un email válido" + LETRAS_DEFAULT);
                 } else if (patronDNI.matcher(dni).find() != true) {
-                    System.out.println(LETRAS_ROJAS + "Introduzca un DNI válido" + LETRAS_ROJAS);
+                    System.out.println(LETRAS_ROJAS + "Introduzca un DNI válido" + LETRAS_DEFAULT);
                 } else if (patronEmail.matcher(email).find() != true) {
-                    System.out.println(LETRAS_ROJAS + "Introduzca un email válido" + LETRAS_ROJAS);
+                    System.out.println(LETRAS_ROJAS + "Introduzca un email válido" + LETRAS_DEFAULT);
                 }
             }
 
@@ -68,9 +69,29 @@ public class Ordenador implements IOrdenador {
     }
 
     @Override
-    public void cambiarMiembro(String nombre, String apellidos, String direccion, int telefono, String email) {
+    public int cambiarMiembro(String nombre, String apellidos, String direccion, int telefono, String email) {
+        int resultadoCambiar = 0;
+        try {
+            //patron para validar el email
+            Pattern patronEmail = Pattern.compile("([A-Za-z0-9]+(\\.?[A-Za-z0-9])*)+@(([A-Za-z]+)\\.([A-Za-z]+))+");
 
-        miembro.modificaMiembro(nombre, apellidos, direccion, telefono, email);
+            if (patronEmail.matcher(email).find() == true) {
+                miembro.modificaMiembro(nombre, apellidos, direccion, telefono, email);
+                resultadoCambiar = 0;
+            } else {
+                resultadoCambiar = -1;
+                if ( patronEmail.matcher(email).find() != true) {
+                    System.out.println(LETRAS_ROJAS + "Introduzca un email válido" + LETRAS_DEFAULT);
+                }
+            }
+
+        } catch (Exception e) {
+            System.out.println("datos incorrectos");
+            resultadoCambiar = -1;
+        }
+        
+        
+        return resultadoCambiar;
     }
 
     @Override

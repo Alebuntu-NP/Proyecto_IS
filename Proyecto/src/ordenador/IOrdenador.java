@@ -17,7 +17,7 @@ public interface IOrdenador {
 
     public void confirmarBaja();
 
-    public void cambiarMiembro(String nombre, String apellidos, String direccion, int telefono, String email);
+    public int cambiarMiembro(String nombre, String apellidos, String direccion, int telefono, String email);
 
     public int addComision(String nombre, String descripcion);
 
