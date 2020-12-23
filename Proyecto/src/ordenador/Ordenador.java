@@ -7,8 +7,7 @@ import java.util.regex.Pattern;
 
 /**
  *
- * @author Alberto García Gonzalez,Juan Moreno Galvarro,Alejandro Román
- * Caballero
+ * @author Alberto García Gonzalez,Juan Moreno Galvarro,Alejandro Román Caballero
  */
 public class Ordenador implements IOrdenador {
 
@@ -17,6 +16,8 @@ public class Ordenador implements IOrdenador {
     private PuntoOrdenDia puntoOrdenDia;
     private Reunion reunion;
     private Comision comision;
+
+    public static final String LETRAS_DEFAULT = "\u001B[0m";
 
     public static final String LETRAS_ROJAS = "\u001B[31m";
     public static final String LETRAS_DEFAULT = "\u001B[0m";
@@ -103,9 +104,9 @@ public class Ordenador implements IOrdenador {
 
     @Override
     public Comision introducirComision(String nombre) {
-        
+
         comision = departamento.obtenerComision(nombre);
-        
+
         return comision;
     }
 
@@ -205,7 +206,8 @@ public class Ordenador implements IOrdenador {
 
     @Override
     public void modificaResolucion(String resolucion) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        puntoOrdenDia.cambioDatosResolucion(resolucion);
     }
 
 }

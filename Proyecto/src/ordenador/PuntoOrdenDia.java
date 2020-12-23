@@ -20,7 +20,7 @@ public class PuntoOrdenDia implements IPuntoOrdenDia {
     }
 
     @Override
-    public void cambiaDatosResolucion(String resolucion) {
+    public void cambioDatosResolucion(String resolucion) {
 
         this.resolucion = resolucion;
     }

@@ -3,11 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Juan/Desktop/UPO/2º%20GIISI/1%20CUATRIMESTRE/Ingenieria%20del%20software%20I/Trabajo%20practico/Implementacion/Proyecto_IS/Proyecto/src/ordenador/Reunion.java</file>
-            <file>file:/C:/Users/Juan/Desktop/UPO/2º%20GIISI/1%20CUATRIMESTRE/Ingenieria%20del%20software%20I/Trabajo%20practico/Implementacion/Proyecto_IS/Proyecto/src/vista/prueba.java</file>
-            <file>file:/C:/Users/Juan/Desktop/UPO/2º%20GIISI/1%20CUATRIMESTRE/Ingenieria%20del%20software%20I/Trabajo%20practico/Implementacion/Proyecto_IS/Proyecto/src/vista/Pantalla.java</file>
-            <file>file:/C:/Users/Juan/Desktop/UPO/2º%20GIISI/1%20CUATRIMESTRE/Ingenieria%20del%20software%20I/Trabajo%20practico/Implementacion/Proyecto_IS/Proyecto/src/ordenador/MyException.java</file>
-            <file>file:/C:/Users/Juan/Desktop/UPO/2º%20GIISI/1%20CUATRIMESTRE/Ingenieria%20del%20software%20I/Trabajo%20practico/Implementacion/Proyecto_IS/Proyecto/src/principal/Principal.java</file>
+            <file>file:/D:/Proyecto_IS/Proyecto/src/ordenador/IOrdenador.java</file>
+            <file>file:/D:/Proyecto_IS/Proyecto/src/ordenador/IComision.java</file>
+            <file>file:/D:/Proyecto_IS/Proyecto/src/ordenador/Comision.java</file>
+            <file>file:/D:/Proyecto_IS/Proyecto/src/vista/Pantalla.java</file>
+            <file>file:/D:/Proyecto_IS/Proyecto/src/principal/Principal.java</file>
+            <file>file:/D:/Proyecto_IS/Proyecto/src/ordenador/Departamento.java</file>
+            <file>file:/D:/Proyecto_IS/Proyecto/src/ordenador/PuntoOrdenDia.java</file>
+            <file>file:/D:/Proyecto_IS/Proyecto/src/ordenador/LineaDeComision.java</file>
+            <file>file:/D:/Proyecto_IS/Proyecto/src/ordenador/Reunion.java</file>
+            <file>file:/D:/Proyecto_IS/Proyecto/src/ordenador/Miembro.java</file>
+            <file>file:/D:/Proyecto_IS/Proyecto/src/ordenador/Ordenador.java</file>
         </group>
     </open-files>
 </project-private>
