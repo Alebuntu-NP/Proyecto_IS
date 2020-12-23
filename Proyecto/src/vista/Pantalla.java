@@ -1,14 +1,12 @@
 package vista;
 
 import java.util.Calendar;
-import java.util.Scanner;
 import ordenador.Ordenador;
 import poo.io.IO;
 
 /**
  *
- * @author Alberto García Gonzalez,Juan Moreno Galbarro,Alejandro Román
- * Caballero
+ * @author Alberto García Gonzalez,Juan Moreno Galbarro,Alejandro Román Caballero
  */
 public class Pantalla {
 
@@ -21,7 +19,7 @@ public class Pantalla {
     }
 
     public void mostrarOpciones() {
-        Scanner s = new Scanner(System.in);
+
         int opc;
         do {
             System.out.println("\n\n\n\tMenú Principal:\n");
@@ -31,10 +29,10 @@ public class Pantalla {
             System.out.println("\t----------------------");
             System.out.println("\t\t0. Salir");
             System.out.println("\n\n--> Introduzca una opción: ");
-            opc = s.nextInt();
+            opc = (int) IO.readNumber();
             while (opc < 0 || opc > 3) {
                 System.out.println("\n\n--> Introduzca una opción válida: ");
-                opc = s.nextInt();
+                opc = (int) IO.readNumber();
                 System.out.println("\n");
             }
             if (opc != 0) {
@@ -59,7 +57,7 @@ public class Pantalla {
     }
 
     private void pantallaMenuMiembro() {
-        Scanner s = new Scanner(System.in);
+
         int opc;
 
         do {
@@ -71,10 +69,10 @@ public class Pantalla {
             System.out.println("\t---------------------");
             System.out.println("\t\t0. Volver");
             System.out.print("\n\n--> Introduzca una opción: ");
-            opc = s.nextInt();
+            opc = (int) IO.readNumber();
             while (opc < 0 || opc > 4) {
                 System.out.print("--> Introduzca una opción valida: ");
-                opc = s.nextInt();
+                opc = (int) IO.readNumber();
                 System.out.println("\n");
             }
             if (opc != 0) {
@@ -219,7 +217,7 @@ public class Pantalla {
     }
 
     private void pantallaMenuComision() {
-        Scanner s = new Scanner(System.in);
+
         int opc;
 
         do {
@@ -232,10 +230,10 @@ public class Pantalla {
             System.out.println("\t---------------------");
             System.out.println("\t\t0. Volver");
             System.out.print("\n\n--> Introduzca una opción: ");
-            opc = s.nextInt();
+            opc = (int) IO.readNumber();
             while (opc < 0 || opc > 5) {
                 System.out.print("--> Introduzca una opción valida: ");
-                opc = s.nextInt();
+                opc = (int) IO.readNumber();
                 System.out.println("\n");
             }
             if (opc != 0) {
@@ -372,7 +370,7 @@ public class Pantalla {
     }
 
     private void pantallaMenuReunion() {
-        Scanner s = new Scanner(System.in);
+
         int opc;
 
         do {
@@ -384,10 +382,10 @@ public class Pantalla {
             System.out.println("\t---------------------");
             System.out.println("\t\t0. Volver");
             System.out.print("\n\n--> Introduzca una opción: ");
-            opc = s.nextInt();
+            opc = (int) IO.readNumber();
             while (opc < 0 || opc > 4) {
                 System.out.print("--> Introduzca una opción valida: ");
-                opc = s.nextInt();
+                opc = (int) IO.readNumber();
                 System.out.println("\n");
             }
             if (opc != 0) {
