@@ -8,7 +8,6 @@ import java.util.List;
  */
 
 
-// Revisar que estos metodos esta igual al diagrama de clases y a los DSS
 public interface IComision {
 
     public void crearLineaDeComision(String puesto,Miembro m);

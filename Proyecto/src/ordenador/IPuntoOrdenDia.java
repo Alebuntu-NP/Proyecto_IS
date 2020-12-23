@@ -5,7 +5,6 @@ package ordenador;
  */
 
 
-// Revisar que estos metodos esta igual al diagrama de clases y a los DSS
 public interface IPuntoOrdenDia {
 
 

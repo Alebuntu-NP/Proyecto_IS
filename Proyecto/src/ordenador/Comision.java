@@ -32,7 +32,7 @@ public class Comision implements IComision {
         Calendar fechaAlta = Calendar.getInstance();
         Calendar fechaBaja = null;
         LineaDeComision ldc;
-        //Te dice si el miembro esta en la comisión, damos por hehcho que no lo está de primeras
+        //Te dice si el miembro esta en la comisión, damos por hecho que no lo está de primeras
         boolean encontrado = false;
         Iterator it;
         it = listLdc.iterator();
