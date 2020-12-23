@@ -7,7 +7,8 @@ import java.util.regex.Pattern;
 
 /**
  *
- * @author Alberto García Gonzalez,Juan Moreno Galvarro,Alejandro Román Caballero
+ * @author Alberto García Gonzalez,Juan Moreno Galvarro,Alejandro Román
+ * Caballero
  */
 public class Ordenador implements IOrdenador {
 
@@ -16,8 +17,6 @@ public class Ordenador implements IOrdenador {
     private PuntoOrdenDia puntoOrdenDia;
     private Reunion reunion;
     private Comision comision;
-
-    public static final String LETRAS_DEFAULT = "\u001B[0m";
 
     public static final String LETRAS_ROJAS = "\u001B[31m";
     public static final String LETRAS_DEFAULT = "\u001B[0m";
@@ -81,7 +80,7 @@ public class Ordenador implements IOrdenador {
                 resultadoCambiar = 0;
             } else {
                 resultadoCambiar = -1;
-                if ( patronEmail.matcher(email).find() != true) {
+                if (patronEmail.matcher(email).find() != true) {
                     System.out.println(LETRAS_ROJAS + "Introduzca un email válido" + LETRAS_DEFAULT);
                 }
             }
@@ -90,8 +89,6 @@ public class Ordenador implements IOrdenador {
             System.out.println("datos incorrectos");
             resultadoCambiar = -1;
         }
-        
-        
         return resultadoCambiar;
     }
 
@@ -206,7 +203,6 @@ public class Ordenador implements IOrdenador {
 
     @Override
     public void modificaResolucion(String resolucion) {
-
         puntoOrdenDia.cambioDatosResolucion(resolucion);
     }
 
