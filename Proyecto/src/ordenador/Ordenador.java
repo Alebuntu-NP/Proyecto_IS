@@ -17,6 +17,8 @@ public class Ordenador implements IOrdenador {
     private Reunion reunion;
     private Comision comision;
 
+    public static final String LETRAS_DEFAULT = "\u001B[0m";
+
     public static final String LETRAS_ROJAS = "\u001B[31m";
 
     public Ordenador(Departamento departamento) {
@@ -38,11 +40,11 @@ public class Ordenador implements IOrdenador {
             } else {
                 resultadoAnadir = -1;
                 if (patronDNI.matcher(dni).find() != true && patronEmail.matcher(email).find() != true) {
-                    System.out.println(LETRAS_ROJAS + "Introduzca un DNI y un email válido" + LETRAS_ROJAS);
+                    System.out.println(LETRAS_ROJAS + "Introduzca un DNI y un email válido" + LETRAS_DEFAULT);
                 } else if (patronDNI.matcher(dni).find() != true) {
-                    System.out.println(LETRAS_ROJAS + "Introduzca un DNI válido" + LETRAS_ROJAS);
+                    System.out.println(LETRAS_ROJAS + "Introduzca un DNI válido" + LETRAS_DEFAULT);
                 } else if (patronEmail.matcher(email).find() != true) {
-                    System.out.println(LETRAS_ROJAS + "Introduzca un email válido" + LETRAS_ROJAS);
+                    System.out.println(LETRAS_ROJAS + "Introduzca un email válido" + LETRAS_DEFAULT);
                 }
             }
 
