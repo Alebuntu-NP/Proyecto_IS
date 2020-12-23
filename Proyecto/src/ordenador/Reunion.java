@@ -82,6 +82,16 @@ public class Reunion implements IReunion {
         return fecha_convocatoria;
     }
 
+    public Calendar getHoraInicio() {
+        return horaInicio;
+    }
+
+    public Calendar getHoraFin() {
+        return horaFin;
+    }
+    
+    
+
     @Override
     public String toString() {
         String  reu = "Título: " + titulo + " Fecha de la Reunión: " + fecha.get(Calendar.DATE)+"/"+fecha.get(Calendar.MONTH)+"/"+fecha.get(Calendar.YEAR) + " Fecha de la Convocatoria: ";

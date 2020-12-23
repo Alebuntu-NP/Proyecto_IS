@@ -7,8 +7,7 @@ import java.util.regex.Pattern;
 
 /**
  *
- * @author Alberto García Gonzalez,Juan Moreno Galbarro,Alejandro Román
- * Caballero
+ * @author Alberto García Gonzalez,Juan Moreno Galbarro,Alejandro Román Caballero
  */
 public class Ordenador implements IOrdenador {
 
@@ -60,7 +59,7 @@ public class Ordenador implements IOrdenador {
     public Miembro introducirDni(String dni) {
 
         miembro = departamento.obtenerMiembro(dni);
-        
+
         return miembro;
     }
 
@@ -186,7 +185,6 @@ public class Ordenador implements IOrdenador {
     public void introducirFechaConvocatoria(Calendar fecha_convocatoria) {
 
         reunion.setFechaConvocatoria(fecha_convocatoria);
-
     }
 
     @Override
