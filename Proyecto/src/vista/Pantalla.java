@@ -27,7 +27,7 @@ public class Pantalla {
             System.out.println("\t2. Gestionar Comisión");
             System.out.println("\t3. Gestionar Reunión");
             System.out.println("\t----------------------");
-            System.out.println("\t\t0. Salir");
+            System.out.println("\t0. Salir");
             System.out.println("\n\n--> Introduzca una opción: ");
             opc = (int) IO.readNumber();
             while (opc < 0 || opc > 3) {
@@ -67,7 +67,7 @@ public class Pantalla {
             System.out.println("\t3. Modificar Miembro");
             System.out.println("\t4. Consultar Miembro");
             System.out.println("\t---------------------");
-            System.out.println("\t\t0. Volver");
+            System.out.println("\t0. Volver");
             System.out.print("\n\n--> Introduzca una opción: ");
             opc = (int) IO.readNumber();
             while (opc < 0 || opc > 4) {
@@ -227,7 +227,7 @@ public class Pantalla {
             System.out.println("\t3. Eliminar Miembro de Comisión");
             System.out.println("\t4. Listar Comisiones");
             System.out.println("\t---------------------");
-            System.out.println("\t\t0. Volver");
+            System.out.println("\t0. Volver");
             System.out.print("\n\n--> Introduzca una opción: ");
             opc = (int) IO.readNumber();
             while (opc < 0 || opc > 4) {
@@ -364,7 +364,7 @@ public class Pantalla {
             System.out.println("\t3. Realizar Convocatoria");
             System.out.println("\t4. Completar Reunión");
             System.out.println("\t---------------------");
-            System.out.println("\t\t0. Volver");
+            System.out.println("\t0. Volver");
             System.out.print("\n\n--> Introduzca una opción: ");
             opc = (int) IO.readNumber();
             while (opc < 0 || opc > 4) {
