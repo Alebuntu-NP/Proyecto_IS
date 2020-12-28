@@ -1,6 +1,8 @@
 package vista;
 
 import java.util.Calendar;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import ordenador.Ordenador;
 import poo.io.IO;
 
@@ -126,7 +128,7 @@ public class Pantalla {
             System.out.println("");
 
             if (fallo == 0) {
-                System.out.println(LETRAS_ROJAS + "El miembro con DNI " + dni + "ya existe" + LETRAS_DEFAULT);
+                System.out.println(LETRAS_ROJAS + "El miembro con DNI " + dni + " ya existe" + LETRAS_DEFAULT);
 
             } else if (fallo == 1) {
                 System.out.println("El miembro se ha registrado correctamente.");
@@ -135,16 +137,16 @@ public class Pantalla {
 
     }
 
+
     private void mostrarBajaMiembro() {
 
         String dni;
         System.out.print("Introduzca dni del Miembro: ");
         dni = IO.readLine();
         if (controlador.introducirDni(dni) != null) {
-
             System.out.println(controlador.introducirDni(dni).toString());
             int opc = 0;
-            while (opc != 1) {
+            while (opc != 1 && opc !=2) {
                 System.out.println("\t1. Confimar eliminación");
                 System.out.println("\t2. No eliminar miembro");
                 opc = (int) IO.readNumber();
@@ -159,15 +161,15 @@ public class Pantalla {
                         System.out.println("No se ha eliminado el miembro.");
                         break;
                     default:
-
                         System.out.println(LETRAS_ROJAS + "Opción inválida." + LETRAS_DEFAULT);
+                        System.out.println("");
                         break;
 
                 }
             }
         } else {
 
-            System.out.println(LETRAS_ROJAS + "No podemos eliminar el cliente con el dni " + dni + ". Actualmente no existe." + LETRAS_DEFAULT);
+            System.out.println(LETRAS_ROJAS + "No se puede eliminar el miembro con el dni " + dni + ". Actualmente no existe." + LETRAS_DEFAULT);
         }
     }
 
@@ -613,12 +615,12 @@ public class Pantalla {
         }
     }
 
+   
+
     public void activa_campo_prueba() {
 
-        
-        
-        
-        
+        miembro_prueba("a", "e", "77873658M", "e", 789, "a@a.com");
+
     }
 
     // Estas pruebas son en un estado ideal donde no ha habido fallos

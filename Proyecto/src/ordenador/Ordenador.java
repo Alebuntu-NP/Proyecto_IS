@@ -3,6 +3,7 @@ package ordenador;
 import java.util.Calendar;
 import java.util.Iterator;
 import java.util.List;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
@@ -31,16 +32,16 @@ public class Ordenador implements IOrdenador {
             //patron para validar el email
             Pattern patronEmail = Pattern.compile("([A-Za-z0-9]+(\\.?[A-Za-z0-9])*)+@(([A-Za-z]+)\\.([A-Za-z]+))+");
             //patron para validar dni 
-            Pattern patronDNI = Pattern.compile("[0-9]{7,8}[A-Z a-z]");
+            boolean nif = validarNIF(dni);
 
-            if (patronEmail.matcher(email).find() == true && patronDNI.matcher(dni).find() == true) {
+            if (patronEmail.matcher(email).find() == true && nif) {
                 miembro = new Miembro(nombre, apellidos, dni, direccion, telefono, email);
                 resultadoAnadir = departamento.miembroNuevo(miembro);
             } else {
                 resultadoAnadir = -1;
-                if (patronDNI.matcher(dni).find() != true && patronEmail.matcher(email).find() != true) {
+                if (!nif && patronEmail.matcher(email).find() != true) {
                     System.out.println(LETRAS_ROJAS + "Introduzca un DNI y un email válido" + LETRAS_DEFAULT);
-                } else if (patronDNI.matcher(dni).find() != true) {
+                } else if (!nif) {
                     System.out.println(LETRAS_ROJAS + "Introduzca un DNI válido" + LETRAS_DEFAULT);
                 } else if (patronEmail.matcher(email).find() != true) {
                     System.out.println(LETRAS_ROJAS + "Introduzca un email válido" + LETRAS_DEFAULT);
@@ -203,6 +204,28 @@ public class Ordenador implements IOrdenador {
     @Override
     public void modificaResolucion(String resolucion) {
         puntoOrdenDia.cambioDatosResolucion(resolucion);
+    }
+    
+    public boolean validarNIF(String nif) {
+
+        boolean correcto = false;
+        Pattern pattern = Pattern.compile("(\\d{1,8})([TRWAGMYFPDXBNJZSQVHLCKEtrwagmyfpdxbnjzsqvhlcke])");
+        Matcher matcher = pattern.matcher(nif);
+        if (matcher.matches()) {
+            String letra = matcher.group(2);
+            String letras = "TRWAGMYFPDXBNJZSQVHLCKE";
+            int index = Integer.parseInt(matcher.group(1));
+            index = index % 23;
+            String reference = letras.substring(index, index + 1);
+            if (reference.equalsIgnoreCase(letra)) {
+                correcto = true;
+            } else {
+                correcto = false;
+            }
+        } else {
+            correcto = false;
+        }
+        return correcto;
     }
 
 }

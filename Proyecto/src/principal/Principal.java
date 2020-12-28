@@ -22,6 +22,8 @@ public class Principal {
         Ordenador controlador = new Ordenador(o);
         Pantalla pa = new Pantalla(controlador);
 
+        pa.activa_campo_prueba();
+                
         pa.mostrarOpciones();
 
 
