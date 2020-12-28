@@ -612,4 +612,25 @@ public class Pantalla {
             System.out.println(LETRAS_ROJAS + "La Comisión no existe." + LETRAS_DEFAULT);
         }
     }
+
+    public void activa_campo_prueba() {
+
+        
+        
+        
+        
+    }
+
+    // Estas pruebas son en un estado ideal donde no ha habido fallos
+    public void miembro_prueba(String nombre, String apellidos, String dni, String direccion, int telefono, String email) {
+
+        controlador.addMiembro(nombre, apellidos, dni, direccion, telefono, email);
+
+    }
+
+    public void comision_prueba(String nombre, String descripcion) {
+        controlador.addComision(nombre, descripcion);
+
+    }
+
 }
