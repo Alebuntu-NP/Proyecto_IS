@@ -42,7 +42,7 @@ public class LineaDeComision implements ILineaDeComision {
     public String toString() {
         
         String LDC;
-        String fa = fechaAlta.get(Calendar.DATE) + "/"+fechaAlta.get(Calendar.MONTH)+"/"+fechaAlta.get(Calendar.YEAR);
+        String fa = fechaAlta.get(Calendar.DATE) + "/"+(fechaAlta.get(Calendar.MONTH)+1)+"/"+fechaAlta.get(Calendar.YEAR);
         LDC = "DNI del Miembro: "+ miembro.getDni() + " Fecha de Alta: " + fa + " Fecha de Baja: ";
         String fb;
         
@@ -50,7 +50,7 @@ public class LineaDeComision implements ILineaDeComision {
             LDC += null;
         }
         else{
-           fb = fechaBaja.get(Calendar.DATE) + "/"+fechaBaja.get(Calendar.MONTH)+"/"+fechaBaja.get(Calendar.YEAR);
+           fb = fechaBaja.get(Calendar.DATE) + "/"+(fechaBaja.get(Calendar.MONTH)+1)+"/"+fechaBaja.get(Calendar.YEAR);
            LDC += fb;
         }
         

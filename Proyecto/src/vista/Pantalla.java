@@ -1,8 +1,6 @@
 package vista;
 
 import java.util.Calendar;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import ordenador.Ordenador;
 import poo.io.IO;
 
@@ -151,7 +149,6 @@ public class Pantalla {
                 System.out.println("\t2. No eliminar miembro");
                 opc = (int) IO.readNumber();
                 System.out.println("");
-
                 switch (opc) {
                     case 1:
                         controlador.confirmarBaja();
@@ -318,7 +315,7 @@ public class Pantalla {
 
         String dni;
         String nombre;
-        System.out.println("Introduzca nombre de la Comision: ");
+        System.out.println("Introduzca nombre de la comisión: ");
         nombre = IO.readLine();
         if (controlador.introducirComision(nombre) != null) {
 
@@ -334,7 +331,7 @@ public class Pantalla {
 
                 controlador.confirmarEliminacionMiembro();
 
-                System.out.println("Miembro dado de baja en la comision correctamentamente.");
+                System.out.println("Miembro dado de baja en la Comisión correctamentamente.");
 
             } else {
 
@@ -343,7 +340,7 @@ public class Pantalla {
 
         } else {
 
-            System.out.println(LETRAS_ROJAS + "La Comision no existe." + LETRAS_DEFAULT);
+            System.out.println(LETRAS_ROJAS + "La Comisión no existe." + LETRAS_DEFAULT);
         }
 
     }

@@ -44,7 +44,7 @@ public class Comision implements IComision {
                 //Miramos si el miembro encontrado está dado de baja o no
                 //Si esta dado de alta
                 if (ldc.getFechaBaja() == null) {
-                    System.out.println(LETRAS_ROJAS+"El miembro ya esta dado de alta en la comisión"+LETRAS_DEFAULT);
+                    System.out.println(LETRAS_ROJAS+"El miembro ya está dado de alta en la comisión"+LETRAS_DEFAULT);
                 } else {
                     //Si esta dado de baja 
                     encontrado = false;

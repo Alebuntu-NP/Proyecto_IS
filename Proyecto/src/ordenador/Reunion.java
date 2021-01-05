@@ -94,13 +94,13 @@ public class Reunion implements IReunion {
 
     @Override
     public String toString() {
-        String  reu = "Título: " + titulo + " Fecha de la Reunión: " + fecha.get(Calendar.DATE)+"/"+fecha.get(Calendar.MONTH)+"/"+fecha.get(Calendar.YEAR) + " Fecha de la Convocatoria: ";
+        String  reu = "Título: " + titulo + " Fecha de la Reunión: " + fecha.get(Calendar.DATE)+"/"+(fecha.get(Calendar.MONTH)+1)+"/"+fecha.get(Calendar.YEAR) + " Fecha de la Convocatoria: ";
     
         if(fecha_convocatoria == null){
             reu += null;
         }
         else{
-           String fb = fecha_convocatoria.get(Calendar.DATE) + "/"+fecha_convocatoria.get(Calendar.MONTH)+"/"+fecha_convocatoria.get(Calendar.YEAR);
+           String fb = fecha_convocatoria.get(Calendar.DATE) + "/"+(fecha_convocatoria.get(Calendar.MONTH)+1)+"/"+fecha_convocatoria.get(Calendar.YEAR);
            reu += fb;
         }
         
