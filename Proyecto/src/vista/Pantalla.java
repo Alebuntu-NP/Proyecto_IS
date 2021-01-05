@@ -448,12 +448,12 @@ public class Pantalla {
 
                 //METIENDO PUNTOS DEL ORDEN DEL DIA
                 while (parada == 2) {
-                    System.out.println("Introduzca los datos del punto del orden del dia");
+                    System.out.println("Introduzca los datos del punto del orden del día");
                     System.out.print("URL: ");
                     url = IO.readLine();
 
                     if (controlador.introduceUrl(url) == null) {
-                        System.out.print("Titulo del punto de orden del dia: ");
+                        System.out.print("Título del punto de orden del dia: ");
                         titulo_pod = IO.readLine();
                         System.out.print("Descripción: ");
                         descripcion = IO.readLine();
