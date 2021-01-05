@@ -429,14 +429,14 @@ public class Pantalla {
                 int h = (int) IO.readNumber();
                 System.out.print("Minuto: ");
                 int m = (int) IO.readNumber();
-                horaInicio.set(anyo, mes, dia, h, m, 0);
+                horaInicio.set(anyo, mes-1, dia, h, m, 0);
                 do {
                     System.out.println("Introduzca la hora a la que debe terminar la reunión:");
                     System.out.print("Hora: ");
                     h = (int) IO.readNumber();
                     System.out.print("Minuto: ");
                     m = (int) IO.readNumber();
-                    horaFin.set(anyo, mes, dia, h, m, 0);
+                    horaFin.set(anyo, mes-1, dia, h, m, 0);
                     if (horaFin.before(horaInicio)) {
                         System.out.println(LETRAS_ROJAS + "La hora de finalización de la reunión no puede ser anterior a la de inicio" + LETRAS_DEFAULT);
                     } else if (horaFin.equals(horaInicio)) {
@@ -484,9 +484,7 @@ public class Pantalla {
             } else {
                 System.out.println(LETRAS_ROJAS + "La reunión ya existe" + LETRAS_DEFAULT);
             }
-
         } else {
-
             System.out.println(LETRAS_ROJAS + "La Comisión no existe." + LETRAS_DEFAULT);
         }
 
@@ -503,13 +501,15 @@ public class Pantalla {
             System.out.println(controlador.introducirComision(nombre).toString());
             System.out.print("Año de la reunión: ");
             anyo = (int) IO.readNumber();
-            controlador.listarReunionAnyo(anyo);
-            System.out.print("Indica un título de la lista: ");
-            titulo = IO.readLine();
-            if (controlador.introducirReunion(titulo) != null) {
-                System.out.println(controlador.introducirReunion(titulo));
-            } else {
-                System.out.println(LETRAS_ROJAS + "No existe la reunión introducida." + LETRAS_DEFAULT);
+            if (controlador.listarReunionAnyo(anyo)) {
+
+                System.out.print("Indica un título de la lista: ");
+                titulo = IO.readLine();
+                if (controlador.introducirReunion(titulo) != null) {
+                    System.out.println(controlador.introducirReunion(titulo));
+                } else {
+                    System.out.println(LETRAS_ROJAS + "No existe la reunión introducida." + LETRAS_DEFAULT);
+                }
             }
         } else {
             System.out.println(LETRAS_ROJAS + "La Comisión no existe." + LETRAS_DEFAULT);
@@ -529,12 +529,13 @@ public class Pantalla {
             titulo = IO.readLine();
             if (controlador.introducirReunion(titulo) != null) {
                 if (controlador.introducirReunion(titulo).getFecha_convocatoria() == null) {
+                    
                     if (controlador.introducirReunion(titulo).getFecha().after(fecha_convocatoria)) {
-                        controlador.introducirFechaConvocatoria(fecha_convocatoria);
+                        controlador.introducirReunion(titulo).setFechaConvocatoria(fecha_convocatoria);
                         System.out.println("Convocatoria Realizada");
                         System.out.println(controlador.introducirReunion(titulo));
                     } else {
-                        System.out.println(LETRAS_ROJAS + "La fecha de la convocatoria no puede ser anterior a la fecha de reunion." + LETRAS_DEFAULT);
+                        System.out.println(LETRAS_ROJAS + "La fecha de la convocatoria no puede ser posterior a la fecha de reunión." + LETRAS_DEFAULT);
                     }
                 } else {
                     System.out.println(LETRAS_ROJAS + "Esta reunión ya tiene una convocatoria asignada" + LETRAS_DEFAULT);
@@ -619,7 +620,7 @@ public class Pantalla {
         comision_prueba("b", "b");
         comision_prueba("c", "c");
 
-        reunion_prueba("a", "r", 2021, 12, 23, 13, 5, 14, 45, "Sevilla", "a", "La crisis economica", "esto es mu vonito");
+        reunion_prueba("a", "r", 2021, 4, 3, 13, 5, 14, 45, "Sevilla", "a", "La crisis económica", "esto es mu vonito");
 
     }
 

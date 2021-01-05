@@ -35,11 +35,9 @@ public interface IOrdenador {
 
     public void confirmarReunion();
 
-    public void listarReunionAnyo(int anyo);
+    public boolean listarReunionAnyo(int anyo);
 
     public Reunion introducirReunion(String titulo);
-
-    public void introducirFechaConvocatoria(Calendar fecha_convocatoria);
 
     public void modificarHoraFin(Calendar horaFin);
 

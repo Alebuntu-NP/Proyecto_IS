@@ -161,17 +161,23 @@ public class Ordenador implements IOrdenador {
     }
 
     @Override
-    public void listarReunionAnyo(int anyo) {
+    public boolean listarReunionAnyo(int anyo) {
 
         List<Reunion> listR = comision.obtenerReunionAnual(anyo);
-
+        boolean hay = false;
         Iterator it;
 
         it = listR.iterator();
-
-        while (it.hasNext()) {
-            System.out.println(it.next());
+        if (!it.hasNext()) {
+            System.out.println(LETRAS_ROJAS + "No hay reuniones para este año." + LETRAS_DEFAULT);
+            
+        } else {
+            hay = true;
+            while (it.hasNext()) {
+                System.out.println(it.next());
+            }
         }
+        return hay;
 
     }
 
@@ -182,11 +188,6 @@ public class Ordenador implements IOrdenador {
         return reunion;
     }
 
-    @Override
-    public void introducirFechaConvocatoria(Calendar fecha_convocatoria) {
-
-        reunion.setFechaConvocatoria(fecha_convocatoria);
-    }
 
     @Override
     public void modificarHoraFin(Calendar horaFin) {
@@ -205,7 +206,7 @@ public class Ordenador implements IOrdenador {
     public void modificaResolucion(String resolucion) {
         puntoOrdenDia.cambioDatosResolucion(resolucion);
     }
-    
+
     public boolean validarNIF(String nif) {
 
         boolean correcto = false;
