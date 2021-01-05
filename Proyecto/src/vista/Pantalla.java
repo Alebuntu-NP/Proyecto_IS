@@ -135,7 +135,6 @@ public class Pantalla {
 
     }
 
-
     private void mostrarBajaMiembro() {
 
         String dni;
@@ -144,7 +143,7 @@ public class Pantalla {
         if (controlador.introducirDni(dni) != null) {
             System.out.println(controlador.introducirDni(dni).toString());
             int opc = 0;
-            while (opc != 1 && opc !=2) {
+            while (opc != 1 && opc != 2) {
                 System.out.println("\t1. Confimar eliminación");
                 System.out.println("\t2. No eliminar miembro");
                 opc = (int) IO.readNumber();
@@ -612,24 +611,22 @@ public class Pantalla {
         }
     }
 
-   
-
     public void activa_campo_prueba() {
 
-        miembro_prueba("a", "e", "77873658M", "e", 789, "a@a.com");
-
+        miembro_prueba("a", "e", "77873658M", "e", 954183448, "a@a.com");
+        miembro_prueba("a", "e", "77871223P", "Presidente", 677365255, "alex@a.com");
+        comision_prueba("a", "a");
+        comision_prueba("b", "b");
+        comision_prueba("c", "c");
     }
 
     // Estas pruebas son en un estado ideal donde no ha habido fallos
     public void miembro_prueba(String nombre, String apellidos, String dni, String direccion, int telefono, String email) {
-
         controlador.addMiembro(nombre, apellidos, dni, direccion, telefono, email);
-
     }
 
     public void comision_prueba(String nombre, String descripcion) {
         controlador.addComision(nombre, descripcion);
-
     }
 
 }
