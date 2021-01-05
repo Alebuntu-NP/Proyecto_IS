@@ -3,13 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Proyecto_IS/Proyecto/src/ordenador/Comision.java</file>
-            <file>file:/D:/Proyecto_IS/Proyecto/src/vista/Pantalla.java</file>
-            <file>file:/D:/Proyecto_IS/Proyecto/src/principal/Principal.java</file>
-            <file>file:/D:/Proyecto_IS/Proyecto/src/ordenador/LineaDeComision.java</file>
-            <file>file:/D:/Proyecto_IS/Proyecto/src/ordenador/Reunion.java</file>
-            <file>file:/D:/Proyecto_IS/Proyecto/src/ordenador/Miembro.java</file>
-            <file>file:/D:/Proyecto_IS/Proyecto/src/ordenador/Ordenador.java</file>
+            <file>file:/C:/Users/aleja/Documents/GitHub/Proyecto_IS/Proyecto/src/vista/prueba.java</file>
+            <file>file:/C:/Users/aleja/Documents/GitHub/Proyecto_IS/Proyecto/src/ordenador/ILineaDeComision.java</file>
+            <file>file:/C:/Users/aleja/Documents/GitHub/Proyecto_IS/Proyecto/src/principal/Principal.java</file>
+            <file>file:/C:/Users/aleja/Documents/GitHub/Proyecto_IS/Proyecto/src/vista/Pantalla.java</file>
+            <file>file:/C:/Users/aleja/Documents/GitHub/Proyecto_IS/Proyecto/src/ordenador/LineaDeComision.java</file>
+            <file>file:/C:/Users/aleja/Documents/GitHub/Proyecto_IS/Proyecto/src/ordenador/Comision.java</file>
         </group>
     </open-files>
 </project-private>

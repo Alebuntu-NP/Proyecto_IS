@@ -104,7 +104,7 @@ public class Reunion implements IReunion {
            reu += fb;
         }
         
-        return reu + " Hora de Inicio: " + horaInicio.get(Calendar.HOUR)+":"+horaInicio.get(Calendar.MINUTE) + " Hora Finalización: " + horaFin.get(Calendar.HOUR)+":"+horaFin.get(Calendar.MINUTE) + " Lugar: " + lugar + " Lista de Miembros: " + listM + " Lista de Puntos de Orden del Dia: " + listPod;
+        return reu + " Hora de Inicio: " + horaInicio.get(Calendar.HOUR_OF_DAY)+":"+horaInicio.get(Calendar.MINUTE) + " Hora Finalización: " + horaFin.get(Calendar.HOUR_OF_DAY)+":"+horaFin.get(Calendar.MINUTE) + " Lugar: " + lugar + " Lista de Miembros: " + listM + " Lista de Puntos de Orden del Dia: " + listPod;
     }
 
     
