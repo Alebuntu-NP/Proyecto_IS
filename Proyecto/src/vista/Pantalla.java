@@ -618,6 +618,9 @@ public class Pantalla {
         comision_prueba("a", "a");
         comision_prueba("b", "b");
         comision_prueba("c", "c");
+
+        reunion_prueba("a", "r", 2021, 12, 23, 13, 5, 14, 45, "Sevilla", "a", "La crisis economica", "esto es mu vonito");
+
     }
 
     // Estas pruebas son en un estado ideal donde no ha habido fallos
@@ -627,6 +630,24 @@ public class Pantalla {
 
     public void comision_prueba(String nombre, String descripcion) {
         controlador.addComision(nombre, descripcion);
+    }
+
+    public void reunion_prueba(String nombre, String titulo_reunion, int anyo, int mes, int dia, int h1, int m1, int h2, int m2, String lugar, String url, String titulo_pod, String descripcion) {
+
+        Calendar horaInicio = Calendar.getInstance();
+        Calendar horaFin = Calendar.getInstance();
+
+        controlador.introducirComision(nombre);
+
+        controlador.introducirReunion(titulo_reunion);
+
+        horaInicio.set(anyo, mes, dia, h1, m1, 0);
+        horaFin.set(anyo, mes, dia, h2, m2, 0);
+        controlador.addReunion(titulo_reunion, horaInicio, horaInicio, horaFin, lugar);
+
+        controlador.addPuntoDia(url, titulo_pod, descripcion);
+
+        controlador.confirmarReunion();
     }
 
 }
