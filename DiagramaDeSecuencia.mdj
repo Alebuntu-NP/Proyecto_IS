@@ -6089,9 +6089,9 @@
 														"$ref": "AAAAAAF14gNfkec1zLs="
 													},
 													"font": "Arial;13;0",
-													"left": 70.97900390625,
+													"left": 66.58642578125,
 													"top": 5,
-													"width": 127.4326171875,
+													"width": 114.7373046875,
 													"height": 13,
 													"text": "DS Objetos Por Crear"
 												},
@@ -6104,7 +6104,7 @@
 													"font": "Arial;13;1",
 													"left": 5,
 													"top": 5,
-													"width": 60.97900390625,
+													"width": 56.58642578125,
 													"height": 13,
 													"text": "interaction"
 												}
@@ -6799,9 +6799,9 @@
 														"$ref": "AAAAAAF14g/miuf0ggc="
 													},
 													"font": "Arial;13;0",
-													"left": 70.97900390625,
+													"left": 66.58642578125,
 													"top": 5,
-													"width": 94.92626953125,
+													"width": 88.02001953125,
 													"height": 13,
 													"text": "DS addMiembro"
 												},
@@ -6814,7 +6814,7 @@
 													"font": "Arial;13;1",
 													"left": 5,
 													"top": 5,
-													"width": 60.97900390625,
+													"width": 56.58642578125,
 													"height": 13,
 													"text": "interaction"
 												}
@@ -7972,9 +7972,9 @@
 														"$ref": "AAAAAAF19l09tZoYrHY="
 													},
 													"font": "Arial;13;0",
-													"left": 70.97900390625,
+													"left": 66.58642578125,
 													"top": 5,
-													"width": 95.6435546875,
+													"width": 91.6318359375,
 													"height": 13,
 													"text": "DS introducirDni"
 												},
@@ -7987,7 +7987,7 @@
 													"font": "Arial;13;1",
 													"left": 5,
 													"top": 5,
-													"width": 60.97900390625,
+													"width": 56.58642578125,
 													"height": 13,
 													"text": "interaction"
 												}
@@ -9018,9 +9018,9 @@
 														"$ref": "AAAAAAF19mhe46FVGCc="
 													},
 													"font": "Arial;13;0",
-													"left": 70.97900390625,
+													"left": 66.58642578125,
 													"top": 5,
-													"width": 102.8671875,
+													"width": 95.94189453125,
 													"height": 13,
 													"text": "DS confirmarBaja"
 												},
@@ -9033,7 +9033,7 @@
 													"font": "Arial;13;1",
 													"left": 5,
 													"top": 5,
-													"width": 60.97900390625,
+													"width": 56.58642578125,
 													"height": 13,
 													"text": "interaction"
 												}
@@ -10042,9 +10042,9 @@
 														"$ref": "AAAAAAF19m1Ag6TxZGM="
 													},
 													"font": "Arial;13;0",
-													"left": 70.97900390625,
+													"left": 66.58642578125,
 													"top": 5,
-													"width": 119.47265625,
+													"width": 111.11279296875,
 													"height": 13,
 													"text": "DS cambiarMiembro"
 												},
@@ -10057,7 +10057,7 @@
 													"font": "Arial;13;1",
 													"left": 5,
 													"top": 5,
-													"width": 60.97900390625,
+													"width": 56.58642578125,
 													"height": 13,
 													"text": "interaction"
 												}
@@ -10713,9 +10713,9 @@
 														"$ref": "AAAAAAF19ndGs6ldhoo="
 													},
 													"font": "Arial;13;0",
-													"left": 70.97900390625,
+													"left": 66.58642578125,
 													"top": 5,
-													"width": 98.54443359375,
+													"width": 90.20361328125,
 													"height": 13,
 													"text": "DS addComision"
 												},
@@ -10728,7 +10728,7 @@
 													"font": "Arial;13;1",
 													"left": 5,
 													"top": 5,
-													"width": 60.97900390625,
+													"width": 56.58642578125,
 													"height": 13,
 													"text": "interaction"
 												}
@@ -12399,9 +12399,9 @@
 														"$ref": "AAAAAAF19n+dmroUceI="
 													},
 													"font": "Arial;13;0",
-													"left": 70.97900390625,
+													"left": 66.58642578125,
 													"top": 5,
-													"width": 130.32080078125,
+													"width": 122.697265625,
 													"height": 13,
 													"text": "DS introducirComision"
 												},
@@ -12414,7 +12414,7 @@
 													"font": "Arial;13;1",
 													"left": 5,
 													"top": 5,
-													"width": 60.97900390625,
+													"width": 56.58642578125,
 													"height": 13,
 													"text": "interaction"
 												}
@@ -14292,7 +14292,7 @@
 														"$ref": "AAAAAAF19qEwyMfWztQ="
 													},
 													"edgePosition": 1,
-													"text": "crearLineaDeComision(puesto)"
+													"text": "crearLineaDeComision(puesto,m)"
 												},
 												{
 													"_type": "EdgeLabelView",
@@ -14762,7 +14762,7 @@
 									"target": {
 										"$ref": "AAAAAAF19nk5Q6oYzSM="
 									},
-									"arguments": "puesto"
+									"arguments": "puesto,m"
 								},
 								{
 									"_type": "UMLMessage",
@@ -14845,9 +14845,9 @@
 														"$ref": "AAAAAAF19rdFfuNllpo="
 													},
 													"font": "Arial;13;0",
-													"left": 70.97900390625,
+													"left": 66.58642578125,
 													"top": 5,
-													"width": 197.498046875,
+													"width": 187.291015625,
 													"height": 13,
 													"text": "DS  confirmarEliminacionMiembro"
 												},
@@ -14860,7 +14860,7 @@
 													"font": "Arial;13;1",
 													"left": 5,
 													"top": 5,
-													"width": 60.97900390625,
+													"width": 56.58642578125,
 													"height": 13,
 													"text": "interaction"
 												}
@@ -15999,9 +15999,9 @@
 														"$ref": "AAAAAAF2DmtSm0uLkTc="
 													},
 													"font": "Arial;13;0",
-													"left": 70.97900390625,
+													"left": 66.58642578125,
 													"top": 5,
-													"width": 118.03173828125,
+													"width": 108.25634765625,
 													"height": 13,
 													"text": "DS listarComisiones"
 												},
@@ -16014,7 +16014,7 @@
 													"font": "Arial;13;1",
 													"left": 5,
 													"top": 5,
-													"width": 60.97900390625,
+													"width": 56.58642578125,
 													"height": 13,
 													"text": "interaction"
 												}
@@ -16784,9 +16784,9 @@
 														"$ref": "AAAAAAF2CTaP+gCkZqY="
 													},
 													"font": "Arial;13;0",
-													"left": 70.97900390625,
+													"left": 66.58642578125,
 													"top": 5,
-													"width": 92.787109375,
+													"width": 83.69091796875,
 													"height": 13,
 													"text": "DS addReunion"
 												},
@@ -16799,7 +16799,7 @@
 													"font": "Arial;13;1",
 													"left": 5,
 													"top": 5,
-													"width": 60.97900390625,
+													"width": 56.58642578125,
 													"height": 13,
 													"text": "interaction"
 												}
@@ -17984,9 +17984,9 @@
 														"$ref": "AAAAAAF2CUIuiAHxmHI="
 													},
 													"font": "Arial;13;0",
-													"left": 70.97900390625,
+													"left": 66.58642578125,
 													"top": 5,
-													"width": 97.83984375,
+													"width": 88.75,
 													"height": 13,
 													"text": "DS addPuntoDia"
 												},
@@ -17999,7 +17999,7 @@
 													"font": "Arial;13;1",
 													"left": 5,
 													"top": 5,
-													"width": 60.97900390625,
+													"width": 56.58642578125,
 													"height": 13,
 													"text": "interaction"
 												}
@@ -19156,9 +19156,9 @@
 														"$ref": "AAAAAAF2CUWR5wMVpxI="
 													},
 													"font": "Arial;13;0",
-													"left": 70.97900390625,
+													"left": 66.58642578125,
 													"top": 5,
-													"width": 125.2744140625,
+													"width": 116.171875,
 													"height": 13,
 													"text": "DS confirmarReunion"
 												},
@@ -19171,7 +19171,7 @@
 													"font": "Arial;13;1",
 													"left": 5,
 													"top": 5,
-													"width": 60.97900390625,
+													"width": 56.58642578125,
 													"height": 13,
 													"text": "interaction"
 												}
@@ -20177,9 +20177,9 @@
 														"$ref": "AAAAAAF2CWGr5QXm6C0="
 													},
 													"font": "Arial;13;0",
-													"left": 70.97900390625,
+													"left": 66.58642578125,
 													"top": 5,
-													"width": 128.17529296875,
+													"width": 119.802734375,
 													"height": 13,
 													"text": "DS listarReunionAnyo"
 												},
@@ -20192,7 +20192,7 @@
 													"font": "Arial;13;1",
 													"left": 5,
 													"top": 5,
-													"width": 60.97900390625,
+													"width": 56.58642578125,
 													"height": 13,
 													"text": "interaction"
 												}
@@ -21081,9 +21081,9 @@
 														"$ref": "AAAAAAF2CVvxvgXBlSk="
 													},
 													"font": "Arial;13;0",
-													"left": 75.97900390625,
+													"left": 71.58642578125,
 													"top": 10,
-													"width": 124.5634765625,
+													"width": 116.1845703125,
 													"height": 13,
 													"text": "DS introducirReunion"
 												},
@@ -21096,7 +21096,7 @@
 													"font": "Arial;13;1",
 													"left": 10,
 													"top": 10,
-													"width": 60.97900390625,
+													"width": 56.58642578125,
 													"height": 13,
 													"text": "interaction"
 												}
@@ -22111,9 +22111,9 @@
 														"$ref": "AAAAAAF2CUrAPwP2vIk="
 													},
 													"font": "Arial;13;0",
-													"left": 75.97900390625,
+													"left": 71.58642578125,
 													"top": 5,
-													"width": 117.314453125,
+													"width": 110.40185546875,
 													"height": 13,
 													"text": "DS modificaHoraFin"
 												},
@@ -22126,7 +22126,7 @@
 													"font": "Arial;13;1",
 													"left": 10,
 													"top": 5,
-													"width": 60.97900390625,
+													"width": 56.58642578125,
 													"height": 13,
 													"text": "interaction"
 												}
@@ -22782,9 +22782,9 @@
 														"$ref": "AAAAAAF2CU7yyASnqHo="
 													},
 													"font": "Arial;13;0",
-													"left": 70.97900390625,
+													"left": 66.58642578125,
 													"top": 5,
-													"width": 92.75537109375,
+													"width": 87.2900390625,
 													"height": 13,
 													"text": "DS introduceUrl"
 												},
@@ -22797,7 +22797,7 @@
 													"font": "Arial;13;1",
 													"left": 5,
 													"top": 5,
-													"width": 60.97900390625,
+													"width": 56.58642578125,
 													"height": 13,
 													"text": "interaction"
 												}
@@ -23813,9 +23813,9 @@
 														"$ref": "AAAAAAF2CXqyFYyPzr8="
 													},
 													"font": "Arial;13;0",
-													"left": 75.97900390625,
+													"left": 71.58642578125,
 													"top": 10,
-													"width": 135.392578125,
+													"width": 125.56640625,
 													"height": 13,
 													"text": "DS modificaResolucion"
 												},
@@ -23828,7 +23828,7 @@
 													"font": "Arial;13;1",
 													"left": 10,
 													"top": 10,
-													"width": 60.97900390625,
+													"width": 56.58642578125,
 													"height": 13,
 													"text": "interaction"
 												}
@@ -25137,7 +25137,8 @@
 									"_parent": {
 										"$ref": "AAAAAAF2CXEl9Go3soI="
 									},
-									"name": "anyo"
+									"name": "anyo",
+									"type": ""
 								},
 								{
 									"_type": "UMLParameter",
